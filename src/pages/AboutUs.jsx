@@ -19,7 +19,7 @@ const About = () => {
 
         {/* Club History */}
         <section className="px-4 md:px-8 pb-6">
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center flex items-center justify-center gap-2">
               <FaHistory className="text-cyan-400" /> Our History
             </h2>

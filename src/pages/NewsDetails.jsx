@@ -1,4 +1,6 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { FaArrowUp } from "react-icons/fa"; // Import arrow icon
 
 const newsData = [
   // Club News
@@ -9,9 +11,10 @@ const newsData = [
     date: "20 Dec 2025",
     source: "Robotics",
     summary:
-      '“The 5G World will be a collaborative ecosystem, and the role of what each of us will do in that remains to be thought through.” Borje Ekholm. The introduction of first 5G network was developed by 3GPP by South Korea Wireless Technologies have been growing actively all around the World. As you all know that today the mobile technologies 4G or LTE which has been rolled out in India, the next evolution of the technology called 5G is a game changer. It is much different from 4G because 4G was only for mobile but 5G is going to be for industrial development. 5G is going to be basically driving all future industries, the future driverless car, the robotics, the mass production in all the automated factories or even the drones that will fly all of that is going to be driven by the fact GSMA expects India to have 920 million mobile subscribers by 2025. 5G will open a door for new wireless architecture and smart services. According to the reports download speeds will be 10 to 20 times faster than 4G, this is going to be a significant step towards revolutionising the tech world. Bharti Airtel and Huawei were first to conduct a demo on India’s first 5G network. How 5G will benefit us ? Video buffering during a streaming session should virtually disappear as data transmission would happen at lightening speeds. Your 3 hour HD films can be downloaded in few seconds. We will enable smart homes that help us be more energy efficient save time on housekeeping and shopping and enjoy safer and more efficient public and private transportation. 5G is great news for the IOT markets. This is primarily due to the fact that 5G networks will go along the way towards improving the performance and reliability of these devices. It will enable enhanced traffic management by supporting a massive number of IOT connections .',
+      "“The 5G World will be a collaborative ecosystem, and the role of what each of us will do in that remains to be thought through.” Borje Ekholm. The introduction of first 5G network was developed by 3GPP by South Korea Wireless Technologies have been growing actively all around the World. As you all know that today the mobile technologies 4G or LTE which has been rolled out in India, the next evolution of the technology called 5G is a game changer. It is much different from 4G because 4G was only for mobile but 5G is going to be for industrial development. 5G is going to be basically driving all future industries, the future driverless car, the robotics, the mass production in all the automated factories or even the drones that will fly all of that is going to be driven by the fact GSMA expects India to have 920 million mobile subscribers by 2025. 5G will open a door for new wireless architecture and smart services. According to the reports download speeds will be 10 to 20 times faster than 4G, this is going to be a significant step towards revolutionising the tech world. Bharti Airtel and Huawei were first to conduct a demo on India’s first 5G network. How 5G will benefit us ? Video buffering during a streaming session should virtually disappear as data transmission would happen at lightening speeds. Your 3 hour HD films can be downloaded in few seconds. We will enable smart homes that help us be more energy efficient save time on housekeeping and shopping and enjoy safer and more efficient public and private transportation. 5G is great news for the IOT markets. This is primarily due to the fact that 5G networks will go along the way towards improving the performance and reliability of these devices. It will enable enhanced traffic management by supporting a massive number of IOT connections .",
     link: "https://telecom.economictimes.indiatimes.com/tag/5g",
-    image: "https://cdn.sanity.io/images/58siqeyu/production/0c7e076d3169e7320700592a9e084da7f16b0cb1-1126x550.jpg", // Replace with actual image URL
+    image:
+      "https://cdn.sanity.io/images/58siqeyu/production/0c7e076d3169e7320700592a9e084da7f16b0cb1-1126x550.jpg", // Replace with actual image URL
   },
   {
     id: 2,
@@ -116,22 +119,36 @@ const newsData = [
     image: "https://via.placeholder.com/800x400", // Replace with actual image URL
   },
 ];
-
 export default function NewsDetail() {
-  const { newsid } = useParams(); // Corrected parameter name
+  const { newsid } = useParams();
   const navigate = useNavigate();
   const news = newsData.find((n) => n.id === parseInt(newsid));
+  const [showGoToTop, setShowGoToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowGoToTop(window.scrollY > 300);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   if (!news) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-semibold mb-8">No Such News Found!</h1>
+          <h1 className="text-4xl font-semibold mb-8 text-cyan-400">
+            No Such News Found!
+          </h1>
           <button
             onClick={() => navigate("/news")}
-            className="bg-red-700/70 text-white px-6 py-2 rounded-xl shadow-lg hover:cursor-pointer hover:bg-red-800/80 transition duration-200"
+            className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg shadow-lg hover:cursor-pointer transition duration-200"
           >
-            Back to Events
+            Back to News
           </button>
         </div>
       </div>
@@ -146,58 +163,113 @@ export default function NewsDetail() {
           text: news.summary.substring(0, 100) + "...",
           url: news.link,
         });
-        console.log('Content was shared successfully!');
+        console.log("Content was shared successfully!");
       } catch (error) {
-        console.log('Sharing failed:', error.message);
+        console.log("Sharing failed:", error.message);
       }
     } else {
-      // Fallback for unsupported browsers (e.g., show a custom modal with copy link/social buttons)
-      alert('Web Share API is not supported in this browser. \nYou can manually copy the link.');
+      alert(
+        "Web Share API is not supported in this browser. \nYou can manually copy the link."
+      );
     }
-  }
-
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-12 mt-12 px-4 sm:px-6 lg:px-8">
-      <button
-        onClick={() => navigate("/news")}
-        className="fixed z-100 p-3 lg:left-10 text-white bg-red-700/70 rounded-lg hover:bg-red-700/80 hover:cursor-pointer font-semibold transition-colors"
-      >
-        ← Back to News
-      </button>
-      <div className="max-w-4xl mx-auto mt-8">
-        <div className="bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-8 shadow-xl">
+    <div className="min-h-screen bg-black text-white pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+      {/* Back to News Button - Repositioned to top center */}
+      <div className="text-center mb-8">
+        <button
+          onClick={() => navigate("/roboticsclub-web/news")}
+          className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-lg shadow-lg hover:cursor-pointer transition duration-200"
+        >
+          Back to News
+        </button>
+      </div>
+
+      <div className="max-w-6xl mx-auto">
+        {/* Hero Section with Image */}
+        <div className="relative mb-8">
           <img
             src={news.image}
             alt={news.title}
-            className="w-full h-84 object-cover rounded-lg mb-6"
+            className="w-full h-96 object-cover rounded-lg shadow-lg border border-gray-800"
           />
-          <span className="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs px-2 py-1 rounded-full mb-4">
-            {news.category}
-          </span>
-          <h1 className="text-4xl font-bold mb-4">{news.title}</h1>
-          <p className="text-stone-900 font-semibold text-sm mb-6">
-            {news.date} | {news.source}
-          </p>
-          <p className="text-sky-500 leading-relaxed mb-8">
+          <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-end p-6">
+            <div>
+              <span className="inline-block bg-cyan-500 text-white text-xs px-3 py-1 rounded-full mb-2">
+                {news.category}
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-2">
+                {news.title}
+              </h1>
+              <p className="text-gray-300 text-sm">
+                {news.date} | {news.source}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Content Card */}
+        <div className="bg-gray-900 rounded-lg p-8 shadow-lg border border-gray-800">
+          <p className="text-gray-300 leading-relaxed mb-8 text-lg">
             {news.summary}
           </p>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <Link
               to={news.link}
-              className="bg-blue-600/80 text-white px-6 py-2 rounded-md shadow-lg hover:bg-blue-500/90 transition duration-200"
+              target="_blank"
+              className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition duration-200 hover:cursor-pointer"
             >
-              Read Full Article
+              More Details
             </Link>
             <button
-              className="bg-green-600/80 hover:bg-green-500/90 text-white px-4 py-2 rounded-md shadow-lg transition duration-200 hover:cursor-pointer flex items-center justify-center"
+              className="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-lg font-semibold shadow-lg transition duration-200 hover:cursor-pointer flex items-center justify-center"
               onClick={() => handleShare(news)}
             >
-              Share
+              Share Article
             </button>
           </div>
         </div>
+
+        {/* Related News Teaser */}
+        <div className="mt-12">
+          <h2 className="text-2xl font-bold text-cyan-400 mb-6">
+            More from {news.category}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {newsData
+              .filter((n) => n.category === news.category && n.id !== news.id)
+              .slice(0, 2)
+              .map((related) => (
+                <div
+                  key={related.id}
+                  className="bg-gray-800 rounded-lg p-4 shadow-lg border border-gray-700 hover:bg-gray-700 transition duration-200 cursor-pointer"
+                  onClick={() => navigate(`/news/${related.id}`)}
+                >
+                  <img
+                    src={related.image}
+                    alt={related.title}
+                    className="w-full h-32 object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-lg font-semibold text-white mb-2">
+                    {related.title}
+                  </h3>
+                  <p className="text-gray-400 text-sm">{related.date}</p>
+                </div>
+              ))}
+          </div>
+        </div>
       </div>
+
+      {/* Go to Top Button */}
+      {showGoToTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-8 right-8 bg-cyan-500 hover:bg-cyan-600 text-white p-3 rounded-full shadow-lg transition duration-200 hover:cursor-pointer"
+        >
+          <FaArrowUp size={20} />
+        </button>
+      )}
     </div>
   );
 }

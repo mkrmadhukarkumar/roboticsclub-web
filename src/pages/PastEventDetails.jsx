@@ -1,5 +1,6 @@
 import React from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom'; // Assuming you're using React Router for navigation
+import { useParams, useNavigate } from 'react-router-dom';
+import { FaArrowUp, FaCalendarAlt, FaImages, FaInfoCircle } from 'react-icons/fa';
 
 // Mock data for past events (same as in the original component)
 const pastEventsData = [
@@ -42,14 +43,20 @@ const PastEventDetails = () => {
   const event = pastEventsData.find(e => e.id === parseInt(eventid)); // Find the event by ID
   const navigate = useNavigate();
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   if (!event) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-semibold mb-8">Sorry, Event Not Found!</h1>
+          <h1 className="text-4xl font-semibold mb-8 text-cyan-400">
+            Sorry, Event Not Found!
+          </h1>
           <button
-            onClick={() => navigate("../events")}
-            className="bg-red-700/70 text-white px-6 py-2 rounded-xl shadow-lg hover:cursor-pointer hover:bg-red-800/80 transition duration-200"
+            onClick={() => navigate("../roboticsclub-web/events")}
+            className="bg-red-700 hover:bg-red-800 text-white px-6 py-2 rounded-lg shadow-2xl hover:scale-105 cursor-pointer transition-all duration-300 border border-red-600 hover:shadow-red-500/50"
           >
             Back to Events
           </button>
@@ -59,49 +66,73 @@ const PastEventDetails = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+    <div className="min-h-screen p-4 pt-16 bg-black text-white relative">
+      {/* Back Button */}
+      <div className="text-center pt-12">
         <button
-        onClick={() => navigate("/events")}
-        className="fixed top-24 z-100 p-3 lg:left-10 text-white bg-red-700/70 rounded-lg hover:bg-red-700/80 hover:cursor-pointer font-semibold transition-colors"
-      >
-        ← Back to News
-      </button>
-      {/* Header */}
-      <section className="pb-4 pt-30 px-4 text-center">
-        <h1 className="text-4xl pt-8 md:pt-0 pb-2 md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-          {event.name}
-        </h1>
-        <p className="text-2xl text-gray-300 max-w-2xl mx-auto">
-          {event.description}
-        </p>
+          onClick={() => navigate("../roboticsclub-web/events")}
+          className="bg-gray-800 hover:bg-gray-700 text-white px-6 py-2 rounded-lg shadow-2xl hover:scale-105 cursor-pointer transition-all duration-300 border border-gray-600 hover:shadow-cyan-500/50"
+        >
+          Back to Events
+        </button>
+      </div>
+
+      {/* Hero Section */}
+      <section className="py-8 px-4">
+        <div className="max-w-8xl mx-auto text-center">
+          <div className="relative">
+            {event.photos.length > 0 && (
+              <img 
+                src={event.photos[0]} 
+                alt={event.name} 
+                className="w-full max-w-6xl mx-auto h-80 md:h-100 lg:h-110 object-cover rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-300 border border-gray-600" 
+              />
+            )}
+            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent rounded-2xl"></div>
+            <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 text-left">
+              <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-cyan-400 mb-2">
+                {event.name}
+              </h1>
+              <p className="text-lg md:text-xl text-gray-300">
+                <strong>Date: </strong>{event.date} | <strong>Category: </strong>{event.category}
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Event Details Section */}
-      <section className="py-8 px-4">
+      {/* Details Section */}
+      <section className="p-4">
         <div className="max-w-6xl mx-auto">
-          <div className="bg-gray-800 bg-opacity-20 backdrop-blur-md rounded-lg p-8 hover:bg-opacity-30 transition duration-300"> {/* Darker background for better image visibility */}
+          <div className="bg-gray-800 rounded-2xl p-6 md:p-8 shadow-2xl border border-gray-600 hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-103">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-cyan-400 flex items-center gap-2">
+              <FaInfoCircle className="text-cyan-400" /> Event Overview
+            </h2>
+            <p className="text-gray-300 mb-8 leading-relaxed text-base md:text-lg">{event.description}</p>
+            
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* Event Info */}
               <div>
-                <h2 className="text-2xl font-bold mb-4 text-cyan-400">Event Details</h2>
-                <p className="text-gray-200 mb-2"><strong>Date:</strong> {event.date}</p> {/* Lighter text for dark background */}
+                <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-300 flex items-center gap-2">
+                  <FaCalendarAlt className="text-cyan-400" /> Event Details
+                </h3>
+                <p className="text-gray-200 mb-2"><strong>Date:</strong> {event.date}</p>
                 <p className="text-gray-200 mb-2"><strong>Category:</strong> {event.category}</p>
-                <p className="text-gray-200 mb-4">{event.description}</p>
-                {/* Add more details if available, e.g., attendees, outcomes */}
                 <p className="text-gray-400 text-sm">
                   This event was a great success, bringing together enthusiasts and experts in the field of robotics.
                 </p>
               </div>
-              {/* Photo Gallery */}
+              
               <div>
-                <h2 className="text-2xl font-bold mb-4 text-cyan-400">Photo Gallery</h2>
+                <h3 className="text-xl md:text-2xl font-semibold mb-4 text-cyan-300 flex items-center gap-2">
+                  <FaImages className="text-cyan-400" /> Photo Gallery
+                </h3>
                 <div className="grid grid-cols-1 gap-4">
                   {event.photos.map((photo, index) => (
                     <img
                       key={index}
                       src={photo}
                       alt={`Event Photo ${index + 1}`}
-                      className="w-full h-64 object-cover rounded-md hover:scale-105 transition duration-200 cursor-pointer"
+                      className="w-full h-64 object-cover rounded-lg hover:scale-110 transition-all duration-300 cursor-pointer shadow-2xl hover:shadow-blue-500/50 border border-gray-600"
                     />
                   ))}
                 </div>

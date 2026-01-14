@@ -188,6 +188,7 @@ const projectTypes = [
   "Autonomous Vehicle",
   "Humanoid Robot",
 ];
+
 const years = ["All", 2021, 2022, 2023];
 
 const ProjectsPage = () => {
@@ -217,29 +218,26 @@ const ProjectsPage = () => {
   };
   const navigate = useNavigate();
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-black text-white pt-16 pb-8">
       {/* Header */}
-      <section className="pt-24 px-4 text-center">
-        <h1 className="text-5xl pb-2 md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-          Our Projects
-        </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto text-wrap">
+      <section className="px-4 pt-12 text-center">
+        <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
           Explore our innovative projects that push the boundaries of robotics
           and technology.
         </p>
       </section>
       {/* Filters */}
-      <section className="py-8 px-4">
+      <section className=" p-4">
         <div className="max-w-6xl mx-auto flex flex-wrap justify-center items-center space-x-4 mb-8">
           <div className="flex items-center space-x-2 py-2">
             <label className="text-gray-200">Filter by Type:</label>
             <select
               value={filterType}
               onChange={(e) => setFilterType(e.target.value)}
-              className="px-3 py-2 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-200"
+              className="px-3 py-2 bg-gray-800 border-2 border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-400 hover:scale-105 transition-all duration-300"
             >
               {projectTypes.map((type) => (
-                <option key={type} value={type} className="text-black">
+                <option key={type} value={type} className="bg-gray-800 text-white">
                   {type}
                 </option>
               ))}
@@ -250,10 +248,10 @@ const ProjectsPage = () => {
             <select
               value={filterYear}
               onChange={(e) => setFilterYear(e.target.value)}
-              className="px-3 py-2 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-200"
+              className="px-3 py-2 bg-gray-800 border-2 border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-400 hover:scale-105 transition-all duration-300"
             >
               {years.map((year) => (
-                <option key={year} value={year} className="text-black">
+                <option key={year} value={year} className="bg-gray-800 text-white">
                   {year}
                 </option>
               ))}
@@ -266,37 +264,37 @@ const ProjectsPage = () => {
           {filteredProjects.map((project) => (
             <div
               key={project.id}
-              className="w-xs bg-white/95 hover:bg-white rounded-lg overflow-hidden hover:scale-102 transition duration-200 cursor-pointer"
-              onClick={() => navigate(`/projects/${project.id}`)}
+              className="w-80 bg-gray-900 rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 cursor-pointer shadow-2xl border border-gray-700 hover:shadow-cyan-500/50"
+              onClick={() => navigate(`../roboticsclub-web/projects/${project.id}`)}
             >
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 object-cover hover:scale-105 transition duration-200"
+                className="w-full h-48 object-cover hover:scale-110 transition-transform duration-300"
               />
               <div className="p-6">
-                <h3 className="text-xl text-black font-bold mb-2">
+                <h3 className="text-xl text-white font-bold mb-2">
                   {project.title}
                 </h3>
-                <p className="text-blue-400 mb-2">
-                  <span className="text-black font-semibold">Year: </span>{" "}
+                <p className="text-cyan-400 mb-2">
+                  <span className="text-gray-300 font-semibold">Year: </span>{" "}
                   {project.year}{" "}
-                  <span className="text-gray-400 font-bold"> | </span>
-                  <span className="text-black font-semibold"> Type: </span>{" "}
+                  <span className="text-gray-500"> | </span>
+                  <span className="text-gray-300 font-semibold"> Type: </span>{" "}
                   {project.type}
                 </p>
-                <p className="text-stone-700 mb-4 line-clamp-3">
+                <p className="text-gray-300 mb-4 line-clamp-3">
                   {project.description}
                 </p>
-                <p className="text-sm text-gray-800 mb-2">
-                  <span className="text-black font-semibold">
+                <p className="text-sm text-gray-400 mb-2">
+                  <span className="text-gray-200 font-semibold">
                     Technologies:
                   </span>{" "}
                   {project.technologies.join(", ")}
                 </p>
                 {project.teamMembers && (
-                  <p className="text-sm text-gray-800">
-                    <span className="text-black font-semibold">Team:</span>{" "}
+                  <p className="text-sm text-gray-400">
+                    <span className="text-gray-200 font-semibold">Team:</span>{" "}
                     {project.teamMembers.join(", ")}
                   </p>
                 )}
@@ -305,36 +303,35 @@ const ProjectsPage = () => {
           ))}
         </div>
       </section>
-
-      {/* Ongoing Events Section */}
-      <section className="py-8 px-4 bg-black bg-opacity-20">
-        <div className="max-w-6xl mx-auto mb-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-            Ongoing Projects
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {ongoingProjectsData.map((project) => (
-              <div
-                key={project.id}
-                onClick={() => navigate(`/ongoingprojects/${project.id}`)} // Add navigation
-                className="bg-white/95 text-black hover:bg-white hover:scale-102 rounded-lg p-6  transition duration-200 cursor-pointer"
-              >
-                <h3 className="text-xl font-bold mb-2">{project.name}</h3>
-                <p className="text-stone-800 mb-4">{project.description}</p>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className="bg-teal-400 h-2.5 rounded-full transition-all duration-300"
-                    style={{ width: `${project.progress}%` }}
-                  ></div>
-                </div>
-                <p className="text-sm text-stone-600 mt-2">
-                  {project.progress}% Completed
-                </p>
-              </div>
-            ))}
+{/* Ongoing Projects Section */}
+<section className="p-4 pt-8">
+  <div className="max-w-6xl mx-auto mb-4">
+    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-cyan-400 pb-4">
+      Ongoing Projects
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {ongoingProjectsData.map((project) => (
+        <div
+          key={project.id}
+          onClick={() => navigate(`../roboticsclub-web/ongoingprojects/${project.id}`)}
+          className="bg-gray-900 text-white hover:scale-105 rounded-lg p-6 transition-all duration-300 cursor-pointer shadow-2xl border border-gray-700 hover:shadow-blue-500/50"
+        >
+          <h3 className="text-xl font-bold mb-2">{project.name}</h3>
+          <p className="text-gray-300 mb-4">{project.description}</p>
+          <div className="w-full bg-gray-700 rounded-full h-2.5">
+            <div
+              className="bg-cyan-400 h-2.5 rounded-full transition-all duration-300"
+              style={{ width: `${project.progress}%` }}
+            ></div>
           </div>
+          <p className="text-sm text-gray-400 mt-2">
+            {project.progress}% Completed
+          </p>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
     </div>
   );
 };

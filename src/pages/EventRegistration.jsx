@@ -95,7 +95,7 @@ export default function EventRegistration() {
         setCountdown((prevCountdown) => {
           if (prevCountdown <= 1) {
             clearInterval(timer);
-            navigate("/events");
+            navigate("../roboticsclub-web/events");
             return 0;
           }
           return prevCountdown - 1;
@@ -108,12 +108,12 @@ export default function EventRegistration() {
 
   if (!event) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl font-semibold mb-8">No Such Event Currently Exists.</h1>
+          <h1 className="text-4xl font-semibold mb-8 text-cyan-500">No Such Event Currently Exists.</h1>
           <button
-            onClick={() => navigate("/events")}
-            className="bg-red-700/70 text-white px-6 py-2 rounded-xl shadow-lg hover:cursor-pointer hover:bg-red-800/80 transition duration-200"
+            onClick={() => navigate("../roboticsclub-web/events")}
+            className="bg-red-600 text-white px-6 py-2 rounded-xl shadow-lg hover:cursor-pointer hover:bg-red-700 transition duration-200"
           >
             Back to Events
           </button>
@@ -137,11 +137,11 @@ export default function EventRegistration() {
 
   if (isRegistered) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+      <div className="min-h-screen bg-black text-white py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
         <div className="max-w-md mx-auto text-center">
-          <div className="bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-8 shadow-xl">
+          <div className="bg-gray-800 rounded-lg p-8 shadow-xl">
             <div className="mb-6">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>
@@ -149,13 +149,13 @@ export default function EventRegistration() {
               <h2 className="text-2xl font-bold mb-2 text-green-400">Registration Successful!</h2>
               <p className="text-gray-300 mb-4">You have successfully registered for:</p>
               <p className="text-lg font-semibold text-cyan-400 mb-4">{event.name}</p>
-              <p className="text-sm text-gray-400">Redirecting to events page in {countdown} seconds...</p>
+              <p className="text-sm text-gray-300">Redirecting to events page in {countdown} seconds...</p>
             </div>
             <button
-              onClick={() => navigate("/events")}
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-6 py-2 rounded-lg hover:from-cyan-600 hover:to-purple-600 transition duration-300 w-full"
+              onClick={() => navigate("../roboticsclub-web/events")}
+              className="cursor-pointer bg-cyan-600/95 text-white px-6 py-2 rounded-lg hover:bg-cyan-700 transition duration-300 w-full"
             >
-              Go to Events Now
+              Back to Events
             </button>
           </div>
         </div>
@@ -164,79 +164,79 @@ export default function EventRegistration() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white pt-24 pb-10 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black text-white pt-24 pb-10 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto mt-4">
-        <div className="bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-8 shadow-xl">
+        <div className="bg-gray-900 rounded-lg p-8 shadow-xl">
           <h1 className="text-4xl font-bold mb-4">Register for Event</h1>
           <div className="mb-6">
-            <h2 className="text-2xl font-semibold mb-2">{event.name}</h2>
-            <p className="text-stone-800 text-sm mb-1">
+            <h2 className="text-2xl text-cyan-500 font-semibold mb-2">{event.name}</h2>
+            <p className="text-gray-400 text-sm mb-1">
               {event.date} | {event.time}
             </p>
-            <p className="text-stone-800 text-sm">{event.venue}</p>
+            <p className="text-gray-400 text-sm">{event.venue}</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium mb-2">Full Name</label>
+              <label className="block text-sm font-medium mb-2 ml-2">Full Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="Enter your full name"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Email Address</label>
+              <label className="block text-sm font-medium mb-2 ml-2">Email Address</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="your.email@example.com"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Phone Number</label>
+              <label className="block text-sm font-medium mb-2 ml-2">Phone Number</label>
               <input
                 type="tel"
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="Enter your phone number"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">Roll Number</label>
+              <label className="block text-sm font-medium mb-2 ml-2">Roll Number</label>
               <input
                 type="text"
                 name="rollNumber"
                 value={formData.rollNumber}
                 onChange={handleInputChange}
                 required
-                className="w-full px-3 py-2 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-lg text-black placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500"
                 placeholder="Enter your roll number"
               />
             </div>
             <div className="flex justify-between pt-4">
               <button
                 type="button"
-                onClick={() => navigate("/events")}
-                className="bg-red-700/70 text-white px-6 py-2 rounded-lg hover:bg-red-800/80 hover:cursor-pointer transition-colors"
+                onClick={() => navigate("../roboticsclub-web/events")}
+                className="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 hover:cursor-pointer transition-colors"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                className="bg-green-600/80 text-white p-2 md:px-6 rounded-lg hover:bg-green-800/90 hover:cursor-pointer transition duration-300"
+                className="bg-green-600 text-white p-2 md:px-6 rounded-lg hover:bg-green-700 hover:cursor-pointer transition duration-300"
               >
-                Complete Registration
+                Register
               </button>
             </div>
           </form>

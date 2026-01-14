@@ -30,7 +30,6 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate form submission
     setSubmitted(true);
     setFormData(initialValue);
     setTimeout(() => setSubmitted(false), 3000);
@@ -39,83 +38,67 @@ export default function Contact() {
   const faqs = [
     {
       question: "How can I join the Robotics Club?",
-      answer:
-        "Attend our weekly meetings or contact us via the form. Membership is open to all students interested in robotics.",
+      answer: "Attend our weekly meetings or contact us via the form. Membership is open to all students interested in robotics.",
     },
     {
       question: "What skills do I need to participate?",
-      answer:
-        "No prior experience required! We welcome beginners and provide training in hardware, software, and AI.",
+      answer: "No prior experience required! We welcome beginners and provide training in hardware, software, and AI.",
     },
     {
       question: "Are there any membership fees?",
-      answer:
-        "No, membership is free. We only ask for your enthusiasm and commitment to learning.",
+      answer: "No, membership is free. We only ask for your enthusiasm and commitment to learning.",
     },
     {
       question: "What projects do you work on?",
-      answer:
-        "We work on autonomous robots, AI applications, and participate in national and international competitions.",
+      answer: "We work on autonomous robots, AI applications, and participate in national and international competitions.",
     },
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-12">
-      <div className="w-full mx-auto">
+    <div className="min-h-screen bg-black text-white pt-16">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <section className="pt-15 px-4 text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Contact Us
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <section className="p-4 pt-12 text-center mb-6">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
             Get in touch with the Robotics Club. We'd love to hear from you!
           </p>
         </section>
 
         {/* Contact Details */}
-        <section className="py-5 px-4 mb-12">
-          <div className="max-w-4xl mx-auto bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl text-pink-600 border-b-2 md:text-4xl font-bold mb-8 text-center">
+        <section className="mb-12">
+          <div className="max-w-6xl mx-auto bg-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-8 text-center pb-4">
               Contact Information
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-black">
-              <div className="flex items-center">
-                <span className="text-4xl text-cyan-800 mr-4">
-                  <MdEmail />
-                </span>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="flex items-center bg-gray-800 p-4 rounded-lg hover:scale-105 transition-all duration-300 shadow-md hover:shadow-blue-500/50">
+                <MdEmail className="text-4xl text-green-400 mr-4" />
                 <div>
-                  <p className="font-semibold">Email</p>
-                  <p className="text-gray-600">roboticsclub@nitp.ac.in</p>
+                  <p className="font-semibold text-white">Email</p>
+                  <p className="text-gray-300">roboticsclub@nitp.ac.in</p>
                 </div>
               </div>
-              <div className="flex items-center">
-                <span className="text-4xl text-blue-400 mr-4">
-                  <FaPhone />
-                </span>
+              <div className="flex items-center bg-gray-800 p-4 rounded-lg hover:scale-105 transition-all duration-300 shadow-md hover:shadow-blue-500/50">
+                <FaPhone className="text-4xl text-blue-400 mr-4" />
                 <div>
-                  <p className="font-semibold">Phone</p>
-                  <p className="text-gray-600">0612-2371715</p>
+                  <p className="font-semibold text-white">Phone</p>
+                  <p className="text-gray-300">0612-2371715</p>
                 </div>
               </div>
-              <div className="flex items-center">
-                <span className="text-4xl text-blue-600 mr-4">
-                  <MdLocationOn />
-                </span>
+              <div className="flex items-center bg-gray-800 p-4 rounded-lg hover:scale-105 transition-all duration-300 shadow-md hover:shadow-blue-500/50">
+                <MdLocationOn className="text-4xl text-red-400 mr-4" />
                 <div>
-                  <p className="font-semibold">Location</p>
-                  <p className="text-gray-600">
-                    Incubation Center 3rd Floor <br /> National Institute of
-                    Technology Patna <br /> Ashok Rajpath, Patna -800005
+                  <p className="font-semibold text-white">Location</p>
+                  <p className="text-gray-300">
+                    Incubation Center 3rd Floor <br /> National Institute of Technology Patna <br /> Ashok Rajpath, Patna -800005
                   </p>
                 </div>
               </div>
-              <div className="flex items-center">
-                <span className="text-4xl text-cyan-600 mr-4">
-                  <IoMdTime />
-                </span>
+              <div className="flex items-center bg-gray-800 p-4 rounded-lg hover:scale-105 transition-all duration-300 shadow-md hover:shadow-blue-500/50">
+                <IoMdTime className="text-4xl text-purple-400 mr-4" />
                 <div>
-                  <p className="font-semibold">Meeting Times</p>
-                  <p className="text-gray-600">Every Saturday, 5:00 PM</p>
+                  <p className="font-semibold text-white">Meeting Times</p>
+                  <p className="text-gray-300">Every Saturday, 5:00 PM</p>
                 </div>
               </div>
             </div>
@@ -123,15 +106,15 @@ export default function Contact() {
         </section>
 
         {/* Location Map */}
-        <section className="w-full py-16 px-4 mb-12 bg-black bg-opacity-20">
-          <div className="max-w-4xl mx-auto bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl text-pink-600 border-b-2 md:text-4xl font-bold mb-8 text-center">
+        <section className="mb-12">
+          <div className="max-w-6xl mx-auto bg-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-8 text-centerpb-4">
               Our Location
             </h2>
             <div className="aspect-w-16 aspect-h-9">
               <iframe
                 alt="Club Location Map"
-                className="w-full h-64 object-cover rounded-lg"
+                className="w-full h-64 rounded-lg border-4 border-gray-700"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6862.58690711107!2d85.16787810571124!3d25.621094841121028!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39ed58dcc9444eb3%3A0xec52b6c29c14db88!2s00%2C%20Patna%20University%20Campus%2C%20Patna%2C%20Bihar%20800005!5e0!3m2!1sen!2sin!4v1767721403168!5m2!1sen!2sin"
               ></iframe>
             </div>
@@ -139,23 +122,20 @@ export default function Contact() {
         </section>
 
         {/* Contact Form */}
-        <section className="py-14 px-4 mb-12">
-          <div className="max-w-4xl mx-auto bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl text-pink-600 border-b-2 md:text-4xl font-bold mb-8 text-center">
+        <section className="mb-12">
+          <div className="max-w-6xl mx-auto bg-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-8 text-center pb-4">
               Get In Touch
             </h2>
             {submitted ? (
-              <div className="bg-green-500/80 hover:bg-green-400 shadow-md text-black p-4 font-semibold rounded-md mb-4 transition duration-200">
+              <div className="bg-green-600 text-white p-4 font-semibold rounded-lg mb-4 shadow-md">
                 Thank you for your message! We'll get back to you soon.
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="flex flex-wrap justify-center gap-8">
-                  <div className="w-full">
-                    <label
-                      htmlFor="name"
-                      className="block text-black text-sm font-medium mb-2 ml-2"
-                    >
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
                       Name
                     </label>
                     <input
@@ -166,14 +146,11 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white border border-gray-600/50 rounded-md text-black font-semibold placeholder-stone-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                      className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
                     />
                   </div>
-                  <div className="w-full">
-                    <label
-                      htmlFor="email"
-                      className="block text-black text-sm font-medium mb-2 ml-2"
-                    >
+                  <div>
+                    <label htmlFor="email" className="block text-white text-sm font-medium mb-2">
                       Email
                     </label>
                     <input
@@ -184,15 +161,12 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white border border-gray-600/50 rounded-md text-black font-semibold placeholder-stone-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                      className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
                     />
                   </div>
                 </div>
                 <div>
-                  <label
-                    htmlFor="purpose"
-                    className="block text-black text-sm font-medium mb-2 ml-2"
-                  >
+                  <label htmlFor="purpose" className="block text-white text-sm font-medium mb-2">
                     Purpose
                   </label>
                   <select
@@ -200,19 +174,16 @@ export default function Contact() {
                     name="purpose"
                     value={formData.purpose}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-white border border-gray-600/50 rounded-md text-black font-semibold focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
                   >
-                    <option className="text-black">General Inquiry</option>
-                    <option className="text-black">Join Club</option>
-                    <option className="text-black">Event Question</option>
-                    <option className="text-black">Collaboration</option>
+                    <option className="bg-gray-800 text-white">General Inquiry</option>
+                    <option className="bg-gray-800 text-white">Join Club</option>
+                    <option className="bg-gray-800 text-white">Event Question</option>
+                    <option className="bg-gray-800 text-white">Collaboration</option>
                   </select>
                 </div>
                 <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-black text-sm font-medium mb-2 ml-2"
-                  >
+                  <label htmlFor="subject" className="block text-white text-sm font-medium mb-2">
                     Subject
                   </label>
                   <input
@@ -223,14 +194,11 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-600/50 rounded-md text-black font-semibold placeholder-stone-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
                   />
                 </div>
                 <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-black text-sm font-medium mb-2 ml-2"
-                  >
+                  <label htmlFor="message" className="block text-white text-sm font-medium mb-2">
                     Message
                   </label>
                   <textarea
@@ -241,12 +209,12 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-white border border-gray-600/50 rounded-md text-black font-semibold placeholder-stone-500/50 focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="bg-green-500/80 hover:bg-green-500 text-white py-2 px-8 rounded-md hover:cursor-pointer transition duration-200 text-lg mx-auto block"
+                  className="bg-cyan-500 hover:bg-cyan-600 text-white py-3 px-8 rounded-lg font-semibold transition-colors duration-200 mx-auto block shadow-md hover:scale-105 duration-300"
                 >
                   Send Message
                 </button>
@@ -256,21 +224,18 @@ export default function Contact() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-10 px-4 mb-5 bg-black bg-opacity-20">
-          <div className="max-w-4xl mx-auto bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl text-pink-500 md:text-4xl border-b-2 font-bold mb-8 text-center">
+        <section className="mb-12">
+          <div className="max-w-6xl mx-auto bg-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-8 text-center pb-4">
               Frequently Asked Questions
             </h2>
             <div className="space-y-6">
               {faqs.map((faq, index) => (
-                <div
-                  key={index}
-                  className="border-b border-gray-600 pb-4 last:border-b-0"
-                >
-                  <h3 className="text-xl text-black font-semibold mb-2">
+                <div key={index} className="bg-gray-800 p-4 rounded-lg border-l-4 border-cyan-400 hover:scale-105 transition-all duration-300 shadow-md hover:shadow-blue-500/50">
+                  <h3 className="text-xl text-white font-semibold mb-2">
                     {faq.question}
                   </h3>
-                  <p className="text-gray-500">{faq.answer}</p>
+                  <p className="text-gray-300">{faq.answer}</p>
                 </div>
               ))}
             </div>
@@ -278,46 +243,42 @@ export default function Contact() {
         </section>
 
         {/* Social Media Links */}
-        <section className="py-8 px-4">
-          <div className="max-w-4xl mx-auto bg-white bg-opacity-10 backdrop-blur-md rounded-lg p-8 text-center">
-            <h2 className="text-3xl text-pink-500 border-b-2 md:text-4xl font-bold mb-8">
+        <section className="pb-8">
+          <div className="max-w-6xl mx-auto bg-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-cyan-400 mb-8 pb-4">
               Follow Us
             </h2>
             <div className="flex justify-center space-x-8">
               <a
                 href="https://facebook.com/robonitp"
-                className="text-blue-500 hover:text-blue-600 transition-colors"
+                target="_blank"
+                className="text-blue-400 hover:text-blue-300 transition-colors duration-200 hover:scale-110 duration-300"
               >
-                <span className="text-4xl">
-                  <FaFacebook />
-                </span>
+                <FaFacebook className="text-4xl" />
                 <span className="sr-only">Facebook</span>
               </a>
               <a
                 href="https://www.youtube.com/@roboticsclubnitp8637"
-                className="text-rose-600 hover:text-rose-700 transition-colors"
+                target="_blank"
+                className="text-red-400 hover:text-red-300 transition-colors duration-200 hover:scale-110 duration-300"
               >
-                <span className="text-4xl">
-                  <FaYoutube />
-                </span>
+                <FaYoutube className="text-4xl" />
                 <span className="sr-only">Youtube</span>
               </a>
               <a
                 href="https://www.instagram.com/robotics_club_nitp/"
-                className="text-pink-400 hover:text-pink-500 transition-colors"
+                target="_blank"
+                className="text-pink-400 hover:text-pink-300 transition-colors duration-200 hover:scale-110 duration-300"
               >
-                <span className="text-4xl">
-                  <IoLogoInstagram />
-                </span>
+                <IoLogoInstagram className="text-4xl" />
                 <span className="sr-only">Instagram</span>
               </a>
               <a
                 href="https://www.linkedin.com/company/robotics-club-nit-patna/"
-                className="text-blue-500 hover:text-blue-600 transition-colors"
+                target="_blank"
+                className="text-blue-500 hover:text-blue-400 transition-colors duration-200 hover:scale-110 duration-300"
               >
-                <span className="text-4xl">
-                  <IoLogoLinkedin />
-                </span>
+                <IoLogoLinkedin className="text-4xl" />
                 <span className="sr-only">LinkedIn</span>
               </a>
             </div>

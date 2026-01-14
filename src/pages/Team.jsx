@@ -1,18 +1,20 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaLinkedin, FaGithub, FaQuoteLeft, FaTrophy, FaBriefcase } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaQuoteLeft, FaTrophy, FaBriefcase, FaUserTie, FaChalkboardTeacher, FaUsers, FaStar, FaMicrochip, FaCode, FaRobot, FaPalette } from 'react-icons/fa';
 
 export default function Team() {
   useEffect(() => {
-      document.title = "Our Teams | Robotics Club | NITP";
-    }, []);
+    document.title = "Our Teams | Robotics Club | NITP";
+  }, []);
+
   const poi = {
     name: 'Dr. Gagan Deep Meena',
     designation: 'Assistant Professor',
     department: 'Electrical Engineering',
-    photo: '../gagandeepmeena.jpg',
+    photo: '../roboticsclub-web/gagandeepmeena.jpg',
     quote: 'Robotics is not just technology, it\'s the future of innovation. Let\'s build it together.'
   };
+
   const facultyAdvisor = {
     name: 'Prof. Bharat Gupta',
     designation: 'Professor',
@@ -48,7 +50,7 @@ export default function Team() {
     },
     {
       name: 'Niharika Rathod',
-      role: 'Seceretary',
+      role: 'Secretary',
       photo: 'https://cdn.sanity.io/images/58siqeyu/production/ad45453e9bac4ec5e9068cecb7b7eaea70a6e0d1-810x1440.jpg',
       linkedin: '',
       github: '',
@@ -61,14 +63,6 @@ export default function Team() {
       linkedin: 'https://www.linkedin.com/in/amit-kumar-singh-67231323a/',
       github: '',
       bio: 'Passionate about AI and robotics. Leading the club towards innovative projects.'
-    },
-    {
-      name: 'Veemlesh Meena',
-      role: 'Joint Secretary',
-      photo: 'https://cdn.sanity.io/images/58siqeyu/production/318b40af975f4dac89b48096a33649cd8fcaf3b1-1280x1280.jpg',
-      linkedin: 'https://www.linkedin.com/in/vimlesh-meena-4a9965298',
-      github: '',
-      bio: 'Specializes in computer vision. Manages project timelines and team collaboration.'
     },
     {
       name: 'Veemlesh Meena',
@@ -125,41 +119,40 @@ export default function Team() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-black text-white relative overflow-hidden pt-16 pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
-        <section className="pt-16 px-4 text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Our Team
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <section className="p-4 pt-12 text-center mb-6">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
             Meet the passionate individuals driving innovation in robotics.
           </p>
         </section>
-        
+
         {/* Professor Of Incharge */}
-        <section className="py-4 px-4 mb-8">
-          <div className="max-w-4xl mx-auto bg-white/95 text-black hover:bg-white hover:scale-102 rounded-lg p-8 transition duration-200">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Professor of Incharge</h2>
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <section className="py-4 px-4 mb-4">
+          <div className="max-w-5xl mx-auto bg-gray-900 rounded-2xl p-5 shadow-xl border border-gray-700 hover:scale-105 transition-all duration-300 hover:shadow-cyan-500/50">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center flex items-center justify-center gap-2">
+              <FaUserTie className="text-cyan-400" /> Professor of Incharge
+            </h2>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
               <img
                 src={poi.photo}
                 alt={poi.name}
-                className="w-48 h-48 rounded-full object-cover shadow-lg"
+                className="w-36 h-36 rounded-full object-cover shadow-lg hover:scale-110 transition-transform duration-300"
               />
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-2">
+                <h3 className="text-xl font-bold mb-2 text-cyan-300">
                   {poi.name}
                 </h3>
-                <p className="text-lg text-stone-600 mb-1">
+                <p className="text-base text-gray-400 mb-1">
                   {poi.designation}
                 </p>
-                <p className="text-lg text-stone-600 mb-6">
+                <p className="text-base text-gray-400 mb-4">
                   {poi.department}
                 </p>
                 <div className="relative">
-                  <FaQuoteLeft className="text-4xl text-stone-800 absolute -top-2 -left-2" />
-                  <blockquote className="text-xl italic text-stone-800 pl-8">
+                  <FaQuoteLeft className="text-3xl text-gray-500 absolute -top-1 -left-1" />
+                  <blockquote className="text-lg italic text-gray-300 pl-6">
                     "{poi.quote}"
                   </blockquote>
                 </div>
@@ -167,31 +160,32 @@ export default function Team() {
             </div>
           </div>
         </section>
-      </div>
 
         {/* Faculty Advisor */}
-        <section className="py-8 px-4 mb-8 bg-black bg-opacity-20">
-          <div className="max-w-4xl mx-auto bg-white/95 hover:bg-white hover:scale-102 text-black rounded-lg p-8 transition duration-200">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Faculty Advisor</h2>
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <section className="py-4 px-4 mb-4">
+          <div className="max-w-5xl mx-auto bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700 hover:scale-105 transition-all duration-300 hover:shadow-cyan-500/50">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center flex items-center justify-center gap-2">
+              <FaChalkboardTeacher className="text-purple-400" /> Faculty Advisor
+            </h2>
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-4">
               <img
                 src={facultyAdvisor.photo}
                 alt={facultyAdvisor.name}
-                className="w-48 h-48 rounded-full object-cover shadow-lg"
+                className="w-36 h-36 rounded-full object-cover shadow-lg hover:scale-110 transition-transform duration-300"
               />
               <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-2">
+                <h3 className="text-xl font-bold mb-2 text-purple-300">
                   {facultyAdvisor.name}
                 </h3>
-                <p className="text-lg text-stone-600 mb-1">
+                <p className="text-base text-gray-400 mb-1">
                   {facultyAdvisor.designation}
                 </p>
-                <p className="text-lg text-stone-600 mb-6">
+                <p className="text-base text-gray-400 mb-4">
                   {facultyAdvisor.department}
                 </p>
                 <div className="relative">
-                  <FaQuoteLeft className="text-4xl text-stone-800 absolute -top-2 -left-2" />
-                  <blockquote className="text-xl italic text-stone-800 pl-8">
+                  <FaQuoteLeft className="text-3xl text-gray-500 absolute -top-1 -left-1" />
+                  <blockquote className="text-lg italic text-gray-300 pl-6">
                     "{facultyAdvisor.quote}"
                   </blockquote>
                 </div>
@@ -201,44 +195,48 @@ export default function Team() {
         </section>
 
         {/* Core Team */}
-        <section className="py-5 px-4 mb-10">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">Core Team</h2>
-            <div className="flex flex-wrap justify-center gap-8">
+        <section className="py-4 px-4 mb-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+              <FaUsers className="text-green-400" /> Core Team
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
               {coreTeam.map((member, index) => (
                 <div
                   key={index}
-                  className="w-2xs lg:w-3xs bg-white/95 text-black hover:bg-white rounded-lg overflow-hidden hover:scale-103 transition-all duration-200 group"
+                  className="w-80 md:w-96 bg-gray-900 rounded-2xl overflow-hidden hover:scale-105 transition-all duration-300 shadow-xl border border-gray-700 group hover:shadow-blue-500/50"
                 >
                   <div className="p-6 text-center">
                     <img
                       src={member.photo}
                       alt={member.name}
-                      className="w-24 h-24 rounded-full object-cover mx-auto mb-4 shadow-md"
+                      className="w-20 h-20 rounded-full object-cover mx-auto mb-3 shadow-md group-hover:scale-110 transition-transform duration-300"
                     />
-                    <h3 className="text-xl font-semibold mb-1">
+                    <h3 className="text-lg font-semibold mb-1 text-cyan-300">
                       {member.name}
                     </h3>
-                    <p className="text-green-500 font-semibold mb-4">
+                    <p className="text-green-400 font-semibold mb-3 text-sm">
                       {member.role}
                     </p>
-                    <div className="flex justify-center space-x-4">
-                      <Link
-                        to={member.linkedin}
-                        className="text-blue-500 hover:text-blue-600 transition-colors"
-                      >
-                        <FaLinkedin size={25} />
-                      </Link>
-                      <Link
-                        to={member.github}
-                        className="text-stone-500 hover:text-stone-600 transition-colors"
-                      >
-                        <FaGithub size={25} />
-                      </Link>
+                    <div className="flex justify-center space-x-3 mb-3">
+                      {member.linkedin && (
+                        <Link
+                          to={member.linkedin}
+                          className="text-blue-400 hover:text-blue-300 transition-colors hover:scale-110 duration-300"
+                        >
+                          <FaLinkedin size={20} />
+                        </Link>
+                      )}
+                      {member.github && (
+                        <Link
+                          to={member.github}
+                          className="text-gray-400 hover:text-gray-300 transition-colors hover:scale-110 duration-300"
+                        >
+                          <FaGithub size={20} />
+                        </Link>
+                      )}
                     </div>
-                  </div>
-                  <div className="px-6 pb-6 ">
-                    <p className="text-sm text-stone-900 text-center text-wrap">
+                    <p className="text-sm text-gray-400 text-center">
                       {member.bio}
                     </p>
                   </div>
@@ -247,49 +245,60 @@ export default function Team() {
             </div>
           </div>
         </section>
-{/* Team Members */}
-<section className="py-16 bg-black bg-opacity-20">
-  <div className="max-w-7xl mx-auto px-4">
-    <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Team Members</h2>
-    <div className="flex flex-wrap justify-center gap-8">
-      {Object.entries(teamMembers).map(([specialization, members]) => (
-        <div key={specialization} className="w-2xs bg-white/95 hover:bg-white hover:scale-103 text-black rounded-lg p-6 transition duration-200">
-          <h3 className="text-xl font-semibold mb-4 text-center">
-            {specialization}
-          </h3>
-          <ul className="space-y-3">
-            {members.map((member, index) => (
-              <li key={index} className="flex justify-between items-center">
-                <span className="font-medium text-stone-800">
-                  {member.name}
-                </span>
-                <span className="text-stone-600 text-sm text-right">
-                  {member.role}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  </div>
-</section>
+
+        {/* Team Members */}
+        <section className="py-6 px-4 mb-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center flex items-center justify-center gap-2">
+              <FaRobot className="text-pink-400" /> Team Members
+            </h2>
+            <div className="flex flex-wrap justify-center gap-4">
+              {Object.entries(teamMembers).map(([specialization, members]) => (
+                <div key={specialization} className="w-80 md:w-96 bg-gray-900 rounded-2xl p-6 hover:scale-105 transition-all duration-300 shadow-xl border border-gray-700 hover:shadow-cyan-500/50">
+                  <div className="flex items-center justify-center mb-3">
+                    {specialization === 'Hardware' && <FaMicrochip className="text-cyan-400 text-2xl mr-2 group-hover:animate-spin" />}
+                    {specialization === 'Software' && <FaCode className="text-purple-400 text-2xl mr-2 group-hover:animate-spin" />}
+                    {specialization === 'AI' && <FaRobot className="text-green-400 text-2xl mr-2 group-hover:animate-spin" />}
+                    {specialization === 'Design' && <FaPalette className="text-pink-400 text-2xl mr-2 group-hover:animate-spin" />}
+                    <h3 className="text-lg font-semibold text-cyan-300">
+                      {specialization}
+                    </h3>
+                  </div>
+                  <ul className="space-y-2">
+                    {members.map((member, index) => (
+                      <li key={index} className="flex justify-between items-center text-sm hover:bg-gray-800 p-2 rounded-lg transition-colors duration-300">
+                        <span className="font-medium text-gray-300">
+                          {member.name}
+                        </span>
+                        <span className="text-gray-500">
+                          {member.role}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Alumni */}
-        <section className="py-16 px-4">
-          <div className="max-w-4xl mx-auto bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Notable Alumni</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <section className="py-6 px-4">
+          <div className="max-w-7xl mx-auto bg-gray-900 rounded-2xl p-5 shadow-xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4 text-center flex items-center justify-center gap-2">
+              <FaStar className="text-yellow-400" /> Notable Alumni
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {alumni.map((alum, index) => (
-                <div key={index} className="flex items-center p-4 bg-gradient-to-r from-cyan-500 to-purple-500 bg-opacity-20 rounded-lg hover:bg-opacity-30 transition duration-300">
-                  <div className="text-3xl mr-4">
+                <div key={index} className="flex items-center p-6 bg-gray-800 rounded-lg hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-blue-500/50">
+                  <div className="text-2xl mr-3 group-hover:animate-bounce">
                     {alum.icon}
                   </div>
                   <div>
-                    <h3 className="text-lg text-white font-semibold">
+                    <h3 className="text-base text-white font-semibold">
                       {alum.name}
                     </h3>
-                    <p className="text-stone-200">
+                    <p className="text-gray-400 text-sm">
                       {alum.achievement}
                     </p>
                   </div>
@@ -298,6 +307,7 @@ export default function Team() {
             </div>
           </div>
         </section>
+      </div>
     </div>
   );
 }

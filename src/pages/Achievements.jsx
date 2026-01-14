@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { FaTrophy, FaBook, FaAward, FaProjectDiagram, FaCalendarAlt, FaMedal, FaNewspaper } from 'react-icons/fa'; // Importing icons from react-icons
 
 export default function Achievements() {
   const [counters, setCounters] = useState({
@@ -134,71 +135,76 @@ export default function Achievements() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen bg-black text-white pt-16 pb-8 relative overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto">
         {/* Header */}
-        <section className="pt-16 px-4 text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Our Achievements
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Celebrating our milestones, victories, and contributions to the field of robotics.
+        <section className="p-4 pt-12 text-center mb-6">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
+            Celebrating our milestones, victories, and groundbreaking contributions to the world of robotics.
           </p>
         </section>
 
         {/* Statistics Counter */}
-        <section className="py-16 px-4 mb-12">
-          <div className="max-w-4xl mx-auto bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Achievement Statistics</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-cyan-400 mb-2">
+        <section className="py-6 px-4 mb-6">
+          <div className="max-w-5xl mx-auto bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+              <FaTrophy className="text-cyan-400" /> Achievement Statistics
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="text-center group">
+                <div className="text-5xl font-bold text-cyan-400 mb-2 group-hover:scale-110 transition-transform duration-300">
                   {counters.competitions}+
                 </div>
-                <div className="text-stone-600">Competitions Won</div>
+                <div className="text-gray-400 font-medium">Competitions Won</div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-purple-400 mb-2">
+              <div className="text-center group">
+                <div className="text-5xl font-bold text-purple-400 mb-2 group-hover:scale-110 transition-transform duration-300">
                   {counters.publications}
                 </div>
-                <div className="text-stone-600">Publications</div>
+                <div className="text-gray-400 font-medium">Publications</div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-green-400 mb-2">
+              <div className="text-center group">
+                <div className="text-5xl font-bold text-green-400 mb-2 group-hover:scale-110 transition-transform duration-300">
                   {counters.awards}
                 </div>
-                <div className="text-stone-600">Awards & Grants</div>
+                <div className="text-gray-400 font-medium">Awards & Grants</div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-pink-400 mb-2">
+              <div className="text-center group">
+                <div className="text-5xl font-bold text-pink-400 mb-2 group-hover:scale-110 transition-transform duration-300">
                   {counters.projects}+
                 </div>
-                <div className="text-stone-600">Projects Completed</div>
+                <div className="text-gray-400 font-medium">Projects Completed</div>
               </div>
             </div>
           </div>
         </section>
+        </div>
 
         {/* Timeline */}
-        <section className="py-16 px-4 mb-12 bg-black bg-opacity-20">
-          <div className="max-w-4xl mx-auto bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Achievement Timeline</h2>
+        <section className="py-8 px-4 mb-6">
+          <div className="max-w-5xl mx-auto bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+              <FaCalendarAlt className="text-purple-400" /> Achievement Timeline
+            </h2>
             <div className="relative">
               {timeline.map((item, index) => (
-                <div key={item.year} className="flex mb-8 last:mb-0">
+                <div key={item.year} className="flex mb-6 last:mb-0">
                   <div className="flex flex-col items-center mr-4">
-                    <div className="w-4 h-4 bg-cyan-400 rounded-full"></div>
+                    <div className="w-6 h-6 bg-cyan-400 rounded-full shadow-lg animate-pulse"></div>
                     {index < timeline.length - 1 && (
-                      <div className="w-0.5 h-16 bg-gray-600 mt-2"></div>
+                      <div className="w-1 h-12 bg-cyan-400 mt-2 rounded-full"></div>
                     )}
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold mb-2">
+                    <h3 className="text-2xl font-semibold mb-2 text-cyan-300">
                       {item.year}
                     </h3>
-                    <ul className="list-disc list-inside text-blue-500 space-y-1">
+                    <ul className="space-y-1">
                       {item.events.map((event, eventIndex) => (
-                        <li key={eventIndex}>{event}</li>
+                        <li key={eventIndex} className="flex items-center gap-2 text-gray-300">
+                          <FaMedal className="text-yellow-400 text-sm" />
+                          {event}
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -209,25 +215,27 @@ export default function Achievements() {
         </section>
 
         {/* Competition Wins */}
-        <section className="py-16 px-4 mb-12">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Competition Wins</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-8 px-4 mb-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+              <FaTrophy className="text-cyan-400" /> Competition Wins
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {competitions.map((comp, index) => (
-                <div key={index} className="bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-6 hover:bg-opacity-20 transition duration-300">
+                <div key={index} className="bg-gray-900 rounded-2xl p-4 shadow-xl border border-gray-700 hover:scale-105 transition-all duration-300 group hover:shadow-blue-500/50">
                   <img
                     src={comp.photo}
                     alt={`${comp.name} ${comp.year}`}
-                    className="w-full h-32 object-cover rounded-lg mb-4"
+                    className="w-full h-32 object-cover rounded-xl mb-4 shadow-lg"
                   />
-                  <h3 className="text-xl font-semibold mb-2">
+                  <h3 className="text-xl font-semibold mb-2 text-cyan-300 group-hover:text-cyan-200">
                     {comp.name} ({comp.year})
                   </h3>
-                  <p className="text-teal-500 font-medium mb-2">
+                  <p className="text-green-400 font-medium mb-2 text-lg">
                     {comp.prize}
                   </p>
-                  <p className="text-stone-600 text-sm">
-                    <strong>Team: </strong>{comp.members.join(', ')}
+                  <p className="text-gray-400 text-sm">
+                    <strong className="text-white">Team: </strong>{comp.members.join(', ')}
                   </p>
                 </div>
               ))}
@@ -236,19 +244,21 @@ export default function Achievements() {
         </section>
 
         {/* Research Publications */}
-        <section className="py-16 px-4 mb-12 bg-black bg-opacity-20">
-          <div className="max-w-4xl mx-auto bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Research Publications</h2>
-            <div className="space-y-6">
+        <section className="py-8 px-4 mb-6">
+          <div className="max-w-5xl mx-auto bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+              <FaBook className="text-purple-400" /> Research Publications
+            </h2>
+            <div className="space-y-4">
               {publications.map((pub, index) => (
-                <div key={index} className="border-b border-gray-600 pb-4 last:border-b-0">
-                  <h3 className="text-xl font-semibold mb-1">
+                <div key={index} className="border-b border-gray-600 pb-4 last:border-b-0 hover:bg-gray-800 p-3 rounded-lg transition-colors duration-300 hover:scale-105">
+                  <h3 className="text-xl font-semibold mb-1 text-cyan-300">
                     {pub.title}
                   </h3>
-                  <p className="text-stoen-800 mb-1">
+                  <p className="text-gray-400 mb-2">
                     {pub.venue} ({pub.year})
                   </p>
-                  <p className="text-sm text-teal-600">
+                  <p className="text-sm text-purple-400">
                     <strong>Authors: </strong>{pub.authors.join(', ')}
                   </p>
                 </div>
@@ -258,19 +268,22 @@ export default function Achievements() {
         </section>
 
         {/* Innovation Grants/Awards */}
-        <section className="py-16 px-4 mb-12">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Innovation Grants & Awards</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-6 px-4 mb-6">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+              <FaAward className="text-green-400" /> Innovation Grants & Awards
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {awards.map((award, index) => (
-                <div key={index} className="bg-gradient-to-br from-cyan-500 to-purple-500 rounded-lg p-6 text-center hover:from-cyan-600 hover:to-purple-600 transition duration-300">
-                  <h3 className="text-xl font-semibold mb-2">
+                <div key={index} className="bg-gray-900 rounded-2xl p-6 text-center shadow-xl border border-gray-700 hover:scale-105 transition-all duration-300 group hover:shadow-blue-500/50">
+                  <FaAward className="text-4xl text-yellow-400 mb-3 mx-auto group-hover:animate-bounce" />
+                  <h3 className="text-xl font-semibold mb-2 text-cyan-300">
                     {award.name}
                   </h3>
-                  <p className="text-gray-200 mb-1">
+                  <p className="text-gray-400 mb-2">
                     {award.organization} ({award.year})
                   </p>
-                  <p className="text-green-400 font-medium">
+                  <p className="text-green-400 font-bold text-lg">
                     {award.amount}
                   </p>
                 </div>
@@ -280,36 +293,37 @@ export default function Achievements() {
         </section>
 
         {/* Recognition & Media Coverage */}
-        <section className="py-16 px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Recognition & Media Coverage</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-6 hover:bg-opacity-20 transition duration-300">
-                <h3 className="text-xl font-semibold mb-2">
+        <section className="py-6 bg-black text-white">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center flex items-center justify-center gap-3">
+              <FaNewspaper className="text-pink-400" /> Recognition & Media Coverage
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700 hover:scale-105 transition-all duration-300 hover:shadow-cyan-500/50">
+                <h3 className="text-xl font-semibold mb-3 text-cyan-300">
                   Featured in Tech Magazine
                 </h3>
-                <p className="text-stone-800 mb-4">
+                <p className="text-gray-400 mb-4 leading-relaxed">
                   "Rising Stars in Robotics: University Club Makes Waves" - Tech Today, 2023
                 </p>
-                <a href="#" className="text-teal-500 hover:text-cyan-300 transition-colors">
-                  Read Article →
+                <a href="alert('current not active')" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium">
+                  Read Article <span className="text-lg">→</span>
                 </a>
               </div>
-              <div className="bg-white text-black bg-opacity-10 backdrop-blur-md rounded-lg p-6 hover:bg-opacity-20 transition duration-300">
-                <h3 className="text-xl font-semibold mb-2">
+              <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700 hover:scale-105 transition-all duration-300 hover:shadow-cyan-500/50">
+                <h3 className="text-xl font-semibold mb-3 text-cyan-300">
                   Interview on Innovation Podcast
                 </h3>
-                <p className="text-stone-800 mb-4">
+                <p className="text-gray-400 mb-4 leading-relaxed">
                   Club president discusses AI in robotics - Future Tech Podcast, Episode 45, 2022
                 </p>
-                <a href="#" className="text-teal-500 hover:text-cyan-300 transition-colors">
-                  Listen Now →
+                <a href="#" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium">
+                  Listen Now <span className="text-lg">→</span>
                 </a>
               </div>
             </div>
           </div>
         </section>
       </div>
-    </div>
   );
 }

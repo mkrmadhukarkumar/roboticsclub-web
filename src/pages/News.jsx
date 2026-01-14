@@ -173,14 +173,11 @@ export default function News() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-black text-white py-16 pb-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <section className="pt-16 pb-5 px-4 text-center justify-center mb-5">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            Robotics News & Updates
-          </h1>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+        <section className="p-4 pt-12 text-center mb-6">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
             Club updates, competitions, and latest trends in robotics.
           </p>
         </section>
@@ -190,10 +187,10 @@ export default function News() {
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`px-4 py-2 hover:cursor-pointer hover:scale-105 rounded-full text-sm font-medium transition-colors ${
+              className={`px-4 py-2 hover:cursor-pointer hover:scale-105 rounded-full text-sm font-medium transition-all duration-300 ${
                 selectedCategory === cat
-                  ? "bg-gradient-to-r from-cyan-500 to-purple-500 text-white"
-                  : "bg-white bg-white/98 hover:bg-white text-gray-500"
+                  ? "bg-cyan-500 text-white shadow-lg"
+                  : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
               }`}
               onClick={() => setSelectedCategory(cat)}
             >
@@ -207,56 +204,56 @@ export default function News() {
           {filteredNews.map((news) => (
             <div
               key={news.id}
-              className="w-2xs bg-white/95 text-black hover:bg-white hover:scale-102 rounded-lg overflow-hidden hover:bg-opacity-20 transition duration-300 shadow-lg hover:shadow-xl"
+              className="w-2xs bg-gray-900 text-white rounded-lg overflow-hidden hover:scale-105 transition-all duration-300 shadow-xl hover:shadow-cyan-500/50 border border-gray-800"
             >
               <div className="p-6 h-60">
-                <span className="inline-block bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs px-2 py-1 rounded-full mb-2">
+                <span className="inline-block bg-cyan-500 text-white text-xs px-2 py-1 rounded-full mb-2">
                   {news.category}
                 </span>
-                <h3 className="text-xl font-semibold mb-2">
+                <h3 className="text-xl font-semibold mb-2 text-white">
                   {news.title}
                 </h3>
-                <p className="text-stone-800 text-sm mb-3">
+                <p className="text-gray-400 text-sm mb-3">
                   {news.date} | {news.source}
                 </p>
-                <p className="text-blue-500 mb-4 line-clamp-3 min-h-15">
+                <p className="text-gray-300 mb-4 line-clamp-3 min-h-15">
                   {news.summary}
                 </p>
               </div>
-              <div className="flex justify-between items-center p-6">
-                  <button
-                    className="text-cyan-400 hover:text-teal-300 font-semibold hover:cursor-pointer transition-colors"
-                    onClick={() => navigate(`/news/${news.id}`)} // Navigate to detail page
-                  >
-                    Read More →
-                  </button>
-                  <button
-                    className="bg-green-600/80 hover:bg-green-500/90 text-white px-4 py-1 rounded-md shadow-lg transition duration-200 hover:cursor-pointer flex items-center justify-center"
-                    onClick={() => handleShare(news)}
-                  >
-                    Share
-                  </button>
-                </div>
+              <div className="flex justify-between items-center p-6 border-t border-gray-800">
+                <button
+                  className="text-cyan-400 hover:text-cyan-300 font-semibold hover:cursor-pointer transition-colors"
+                  onClick={() => navigate(`../roboticsclub-web/news/${news.id}`)} // Navigate to detail page
+                >
+                  Read More →
+                </button>
+                <button
+                  className="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-1 rounded-md shadow-lg transition duration-200 hover:cursor-pointer flex items-center justify-center hover:scale-105"
+                  onClick={() => handleShare(news)}
+                >
+                  Share
+                </button>
+              </div>
             </div>
           ))}
         </div>
 
         {/* Newsletter Subscription */}
         <section className="p-4 pt-10">
-          <div className="max-w-4xl mx-auto bg-gradient-to-r from-cyan-500 to-purple-500 bg-opacity-20 backdrop-blur-md rounded-lg p-6 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className="max-w-4xl mx-auto bg-gray-900 rounded-2xl p-8 shadow-2xl border border-gray-700 hover:shadow-cyan-500/50 transition-all duration-300 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-400">
               Stay Updated
             </h2>
-            <p className="text-gray-200 mb-6">
+            <p className="text-gray-300 mb-6">
               Subscribe to our newsletter for the latest robotics news and club
               updates.
             </p>
             {subscribed && showMessage ? (
-              <div className="bg-green-500/90 text-left text-black p-4 font-semibold rounded-md relative">
+              <div className="bg-green-600 text-white p-4 font-semibold rounded-lg mb-4 shadow-md relative">
                 Thank you for subscribing! Check your email for confirmation.
                 <button
                   onClick={closeMessage}
-                  className="absolute top-2 right-2 text-black/80 hover:text-black hover:cursor-pointer text-3xl font-bold"
+                  className="absolute top-2 right-2 text-white hover:text-gray-300 hover:cursor-pointer text-3xl font-bold"
                 >
                   ×
                 </button>
@@ -272,11 +269,11 @@ export default function News() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
-                  className="flex-1 px-4 py-2 bg-white border border-gray-600 rounded-lg text-black placeholder-stone-600 shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                  className="flex-1 px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-colors hover:scale-105 duration-300"
                 />
                 <button
                   type="submit"
-                  className="bg-blue-600/80 font-semibold text-white px-4 py-2 rounded-md hover:bg-blue-600 transition duration-200 text-md cursor-pointer"
+                  className="bg-cyan-500 hover:bg-cyan-600 font-semibold text-white px-4 py-2 rounded-lg transition duration-200 hover:cursor-pointer shadow-md hover:scale-105"
                 >
                   Subscribe
                 </button>

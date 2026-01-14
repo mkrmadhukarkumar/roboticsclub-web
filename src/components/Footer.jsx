@@ -13,6 +13,7 @@ const Footer = () => {
           <div className="flex space-x-4">
             <Link
               to="https://facebook.com/robonitp"
+              target="_blank"
               className="text-blue-500 hover:text-blue-600 transition-colors"
             >
               <span className="text-4xl">
@@ -22,6 +23,7 @@ const Footer = () => {
             </Link>
             <Link
               to="https://www.youtube.com/@roboticsclubnitp8637"
+              target="_blank"
               className="text-rose-600 hover:text-rose-700 transition-colors"
             >
               <span className="text-4xl">
@@ -31,6 +33,7 @@ const Footer = () => {
             </Link>
             <Link
               to="https://www.instagram.com/robotics_club_nitp/"
+              target="_blank"
               className="text-pink-400 hover:text-pink-500 transition-colors"
             >
               <span className="text-4xl">
@@ -40,6 +43,7 @@ const Footer = () => {
             </Link>
             <Link
               to="https://www.linkedin.com/company/robotics-club-nit-patna/"
+              target="_blank"
               className="text-blue-500 hover:text-blue-600 transition-colors"
             >
               <span className="text-4xl">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaArrowUp } from 'react-icons/fa';
 
 // Mock data for events (same as before)
 const upcomingEventsData = [
@@ -85,7 +86,6 @@ const pastEventsData = [
 const categories = ['All', 'Workshops', 'Competitions', 'Guest Lectures', 'Social Events'];
 
 const Events = () => {
-
   useEffect(() => {
     document.title = "Events | Robotics Club | NITP";
   }, []);
@@ -107,21 +107,20 @@ const Events = () => {
   }, [sortBy, filterCategory]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 text-white">
+    <div className="min-h-screen bg-black text-white relative pt-16 pb-8">
       {/* Header */}
-      <section className="pb-4 pt-30 px-4 text-center" >
-        <h1 className="text-5xl pb-2 md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-          Robotics Events
-        </h1>
-        <p className="text-2xl text-gray-300 max-w-2xl mx-auto">
+      <section className="p-4 pt-12 text-center">
+        <p className="text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed">
           Creating the next generation of innovators and change makers.
         </p>
       </section>
 
       {/* Upcoming Events Section */}
-      <section className="pt-8 pb-16 px-4">
-        <div className="max-w-9xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Upcoming Events</h2>
+      <section className=" py-4">
+        <div className="max-w-8xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-center text-cyan-400 pb-8">
+            Upcoming Events
+          </h2>
           
           {/* Sorting and Filtering */}
           <div className="flex flex-wrap justify-center items-center mb-8 space-x-4">
@@ -130,10 +129,10 @@ const Events = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 mb-2 md:mb-0 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                className="px-3 py-2 mb-2 md:mb-0 bg-gray-800 border-2 border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-400 hover:scale-105 transition-all duration-300"
               >
-                <option value="date" className="text-black">Date</option>
-                <option value="name" className="text-black">Name</option>
+                <option value="date" className="bg-gray-800 text-white">Date</option>
+                <option value="name" className="bg-gray-800 text-white">Name</option>
               </select>
             </div>
             <div className="flex items-center space-x-2">
@@ -141,32 +140,31 @@ const Events = () => {
               <select
                 value={filterCategory}
                 onChange={(e) => setFilterCategory(e.target.value)}
-                className="px-3 py-2 bg-white bg-opacity-10 backdrop-blur-md border border-gray-600 rounded-md text-black focus:outline-none focus:ring-2 focus:ring-cyan-200"
+                className="px-3 py-2 bg-gray-800 border-2 border-gray-700 rounded-lg text-white focus:outline-none focus:border-cyan-400 hover:scale-105 transition-all duration-300"
               >
-                {categories.map(cat => <option key={cat} value={cat} className="text-black">{cat}</option>)}
+                {categories.map(cat => <option key={cat} value={cat} className="bg-gray-800 text-white">{cat}</option>)}
               </select>
             </div>
           </div>
 
           <div className="flex flex-wrap justify-center gap-8">
             {upcomingEvents.map(event => (
-              <div key={event.id} className="w-xs bg-white/95 text-black hover:bg-white hover:scale-102 rounded-lg p-6 hover:bg-opacity-20 transition duration-200">
-                <h3 className="text-xl font-bold mb-2 min-h-15">{event.name}</h3>
-                <div className="min-h-65 hover:scale-105 rounded-lg transition durattion-200" >
-                  <img src="https://cdn.sanity.io/images/58siqeyu/production/1c73972370e08724bbb7e15d22f7a1ca31e1ef2b-640x640.jpg" alt="" className='rounded-lg hover:cursor-pointer' />
+              <div key={event.id} className="w-xs bg-gray-900 text-white hover:scale-105 rounded-lg p-6 shadow-2xl transition-all duration-300 border border-gray-700 hover:shadow-cyan-500/50">
+                <h3 className="text-xl font-bold mb-2 min-h-15 text-cyan-400">{event.name}</h3>
+                <div className="min-h-65 hover:scale-105 rounded-lg transition duration-200">
+                  <img src="https://cdn.sanity.io/images/58siqeyu/production/1c73972370e08724bbb7e15d22f7a1ca31e1ef2b-640x640.jpg" alt="" className='rounded-lg hover:cursor-pointer hover:scale-110 transition-transform duration-300' />
                 </div>
                 <div className='min-h-52'>
-                  <p className="text-stone-800 mb-1"><strong>Date:</strong> {event.date}</p>
-                <p className="text-stone-800 mb-1"><strong>Time:</strong> {event.time}</p>
-                <p className="text-stone-800 mb-1"><strong>Venue:</strong> {event.venue}</p>
-                <p className="text-stone-900 mb-4">{event.description}</p>
-                <p className="text-sm text-sky-400 font-semibold mb-4">Category: {event.category}</p>
-
+                  <p className="text-gray-200 mb-1"><strong>Date:</strong> {event.date}</p>
+                  <p className="text-gray-200 mb-1"><strong>Time:</strong> {event.time}</p>
+                  <p className="text-gray-200 mb-1"><strong>Venue:</strong> {event.venue}</p>
+                  <p className="text-gray-300 mb-4">{event.description}</p>
+                  <p className="text-sm text-cyan-400 font-semibold mb-4">Category: {event.category}</p>
                 </div>
                 
                 <center><Link
-                  to={event.registrationLink}
-                  className="inline-block text-center bg-green-500/80 text-white px-4 py-2 shadow-lg rounded-md hover:bg-green-500/90 transition duration-200"
+                  to={`/roboticsclub-web${event.registrationLink}`}
+                  className="inline-block text-center bg-cyan-500 text-white px-4 py-2 shadow-lg rounded-lg hover:bg-cyan-600 transition duration-200 hover:scale-105"
                 >
                   Register Interest
                 </Link></center>
@@ -177,23 +175,25 @@ const Events = () => {
       </section>
 
       {/* Past Events Section */}
-      <section className="py-16 px-4 bg-black text-white">
+      <section className="py-8 px-4 text-white">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Past Events</h2>
+          <h2 className="text-2xl md:text-3xl md:text-4xl font-bold text-center text-cyan-400 pb-4">
+            Past Events
+          </h2>
           <div className="flex flex-wrap justify-center gap-8">
             {pastEventsData.map(event => (
               <div 
                 key={event.id} 
-                onClick={() => navigate(`/pastevents/${event.id}`)} // Fixed: Wrap in arrow function
-                className="w-sm bg-white/95 hover:bg-white hover:scale-102 text-black rounded-lg p-6 transition duration-300 cursor-pointer" // Added cursor-pointer for better UX
+                onClick={() => navigate(`../roboticsclub-web/pastevents/${event.id}`)} // Fixed: Wrap in arrow function
+                className="w-sm bg-gray-900 hover:scale-105 text-white rounded-lg p-6 shadow-2xl transition-all duration-300 cursor-pointer border border-gray-700 hover:shadow-blue-500/50" // Added cursor-pointer for better UX
               >
-                <h3 className="text-xl font-bold mb-2">{event.name}</h3>
-                <p className="text-stone-800 mb-1"><strong>Date:</strong> {event.date}</p>
-                <p className="text-stone-800 mb-4">{event.description}</p>
-                <p className="text-sm text-blue-400 mb-4">Category: {event.category}</p>
+                <h3 className="text-xl font-bold mb-2 text-cyan-400">{event.name}</h3>
+                <p className="text-gray-200 mb-1"><strong>Date:</strong> {event.date}</p>
+                <p className="text-gray-300 mb-4">{event.description}</p>
+                <p className="text-sm text-cyan-400 mb-4">Category: {event.category}</p>
                 <div className="grid grid-cols-2 gap-2">
                   {event.photos.map((photo, index) => (
-                    <img key={index} src={photo} alt={`Event Photo ${index + 1}`} className="w-full h-32 object-cover rounded-md" />
+                    <img key={index} src={photo} alt={`Event Photo ${index + 1}`} className="w-full h-32 object-cover rounded-md hover:scale-105 transition-transform duration-300" />
                   ))}
                 </div>
               </div>

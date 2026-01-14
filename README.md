@@ -8,14 +8,14 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
 
 ---
 
-## 👥 Team Members (4-Member Team)
+## 👥 Team Members
 
-| Name | Role | GitHub | 
-|-----|-----|--------|----------|
-| **Onkar Kumar** | Team Lead  | https://github.com/onkarrpy2403-ux |
+| Name | Role | GitHub |
+|------|------|--------|
+| **Onkar Kumar** | Team Lead | https://github.com/onkarrpy2403-ux |
 | **Madhukar Kumar** | Main Developer / Documentation | https://github.com/mkrmadhukarkumar |
-| **Tanmayee Biswal**| Frontend Developer / Content | https://github.com/RT-Biswal257 |
-| **Anukriti Dinesh Rai** | UI/UX Designer | |
+| **Tanmayee Biswal** | Frontend Developer / Content | https://github.com/RT-Biswal257 |
+| **Anukriti Dinesh Rai** | UI/UX Designer | N/A |
 
 ---
 

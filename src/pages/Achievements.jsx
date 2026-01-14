@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom'
 import { FaTrophy, FaBook, FaAward, FaProjectDiagram, FaCalendarAlt, FaMedal, FaNewspaper } from 'react-icons/fa'; // Importing icons from react-icons
 
 export default function Achievements() {
@@ -45,21 +46,21 @@ export default function Achievements() {
     {
       name: "International Robotics Competition",
       year: 2023,
-      prize: "1st Place - $10,000",
+      prize: "1st Place - ₹ 10,000",
       members: ["Madhukar Kumar", "Rahul Verma", "Sneha Singh"],
       photo: "https://tecnico.ulisboa.pt/files/2023/07/competi-o-de-robots..jpg"
     },
     {
       name: "National AI Challenge",
       year: 2022,
-      prize: "2nd Place - $5,000",
+      prize: "2nd Place - ₹ 5,000",
       members: ["Aman Kumar", "Neha", "Aditya"],
       photo: "https://itag.ie/wp-content/uploads/2025/07/Screenshot-2025-07-08-at-16.22.10-1024x504.png.webp"
     },
     {
       name: "RoboCup Junior",
       year: 2021,
-      prize: "3rd Place - $2,500",
+      prize: "3rd Place - ₹ 2,500",
       members: ["Rohit", "Pooja", "Shivam"],
       photo: "https://ai.sony/wp-content/uploads/2021/06/thumbnail_image002.jpg"
     }
@@ -70,19 +71,19 @@ export default function Achievements() {
       title: "Advancements in Autonomous Navigation for Industrial Robots",
       venue: "IEEE International Conference on Robotics and Automation",
       year: 2023,
-      authors: ["Dr. A. K. Sharma", "Madhukar Kumar", "Rahul Verma"]
+      authors: ["Dr. Sharma", "Mahesh Kumar", "Rahul Verma"]
     },
     {
       title: "Machine Learning Applications in Soft Robotics",
       venue: "Journal of Robotics Research",
       year: 2022,
-      authors: ["Sneha Singh", "Aman Kumar", "Dr. A. K. Sharma"]
+      authors: ["Sneha Singh", "Aman Kumar", "Dr. Sharma"]
     },
     {
       title: "Human-Robot Collaboration in Manufacturing Environments",
       venue: "Robotics and Autonomous Systems Journal",
       year: 2021,
-      authors: ["Neha", "Aditya", "Dr. A. K. Sharma"]
+      authors: ["Neha", "Aditya", "Dr. Sharma"]
     }
   ];
 
@@ -91,19 +92,19 @@ export default function Achievements() {
       name: "Innovation Grant for Robotics Research",
       organization: "Ministry of Education",
       year: 2023,
-      amount: "$50,000"
+      amount: "₹ 50,000"
     },
     {
       name: "Best Student Project Award",
       organization: "Indian Robotics Society",
       year: 2022,
-      amount: "$10,000"
+      amount: "₹ 10,000"
     },
     {
       name: "Young Innovator Award",
       organization: "Tech Excellence Foundation",
       year: 2021,
-      amount: "$15,000"
+      amount: "₹ 15,000"
     }
   ];
 
@@ -306,9 +307,9 @@ export default function Achievements() {
                 <p className="text-gray-400 mb-4 leading-relaxed">
                   "Rising Stars in Robotics: University Club Makes Waves" - Tech Today, 2023
                 </p>
-                <a href="alert('current not active')" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium">
+                <Link to="/roboticsclub-web/achievements" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium">
                   Read Article <span className="text-lg">→</span>
-                </a>
+                </Link>
               </div>
               <div className="bg-gray-900 rounded-2xl p-6 shadow-xl border border-gray-700 hover:scale-105 transition-all duration-300 hover:shadow-cyan-500/50">
                 <h3 className="text-xl font-semibold mb-3 text-cyan-300">
@@ -317,9 +318,9 @@ export default function Achievements() {
                 <p className="text-gray-400 mb-4 leading-relaxed">
                   Club president discusses AI in robotics - Future Tech Podcast, Episode 45, 2022
                 </p>
-                <a href="#" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium">
+                <Link to="/roboticsclub-web/achievements" className="inline-flex items-center gap-2 text-teal-400 hover:text-teal-300 transition-colors font-medium">
                   Listen Now <span className="text-lg">→</span>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -1,9 +1,9 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FaArrowUp } from "react-icons/fa"; // Import arrow icon
+import { FaArrowUp } from "react-icons/fa";
 
+//here we can call API and get data from backend in future.
 const newsData = [
-  // Club News
   {
     id: 1,
     category: "Tech Innovations",
@@ -14,7 +14,7 @@ const newsData = [
       "“The 5G World will be a collaborative ecosystem, and the role of what each of us will do in that remains to be thought through.” Borje Ekholm. The introduction of first 5G network was developed by 3GPP by South Korea Wireless Technologies have been growing actively all around the World. As you all know that today the mobile technologies 4G or LTE which has been rolled out in India, the next evolution of the technology called 5G is a game changer. It is much different from 4G because 4G was only for mobile but 5G is going to be for industrial development. 5G is going to be basically driving all future industries, the future driverless car, the robotics, the mass production in all the automated factories or even the drones that will fly all of that is going to be driven by the fact GSMA expects India to have 920 million mobile subscribers by 2025. 5G will open a door for new wireless architecture and smart services. According to the reports download speeds will be 10 to 20 times faster than 4G, this is going to be a significant step towards revolutionising the tech world. Bharti Airtel and Huawei were first to conduct a demo on India’s first 5G network. How 5G will benefit us ? Video buffering during a streaming session should virtually disappear as data transmission would happen at lightening speeds. Your 3 hour HD films can be downloaded in few seconds. We will enable smart homes that help us be more energy efficient save time on housekeeping and shopping and enjoy safer and more efficient public and private transportation. 5G is great news for the IOT markets. This is primarily due to the fact that 5G networks will go along the way towards improving the performance and reliability of these devices. It will enable enhanced traffic management by supporting a massive number of IOT connections .",
     link: "https://telecom.economictimes.indiatimes.com/tag/5g",
     image:
-      "https://cdn.sanity.io/images/58siqeyu/production/0c7e076d3169e7320700592a9e084da7f16b0cb1-1126x550.jpg", // Replace with actual image URL
+      "https://cdn.sanity.io/images/58siqeyu/production/0c7e076d3169e7320700592a9e084da7f16b0cb1-1126x550.jpg",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const newsData = [
     summary:
       "The Robotics Club is excited to announce a new membership drive for the upcoming semester. We welcome students from all disciplines who are passionate about robotics and technology. New members will have access to workshops, mentorship programs, and hands-on projects. Join us to be part of an innovative community that pushes the boundaries of robotics engineering and research.",
     link: "#",
-    image: "https://via.placeholder.com/800x400?text=Membership+Drive", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg",
   },
   // Competition News
   {
@@ -37,7 +37,7 @@ const newsData = [
     summary:
       "An Indian university robotics team qualified for an international competition after showcasing excellence in autonomous navigation and obstacle handling. Their success highlights the growing robotics talent and innovation ecosystem in India. The team demonstrated advanced algorithms for real-time path planning and collaborative robot behaviors, earning recognition from global judges.",
     link: "https://www.thehindu.com",
-    image: "https://via.placeholder.com/800x400?text=Robotics+Challenge", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg",
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const newsData = [
     summary:
       "Our Robotics Club secured first place in the regional engineering fair with their innovative humanoid robot project. The competition featured teams from across the state, and our entry stood out for its sophisticated AI integration and precise mechanical design. This victory opens doors to national-level competitions and potential industry partnerships.",
     link: "#",
-    image: "https://via.placeholder.com/800x400?text=Engineering+Fair", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg", 
   },
   // Tech Innovations
   {
@@ -60,7 +60,7 @@ const newsData = [
     summary:
       "AI-powered robots are revolutionizing warehouse automation by enabling real-time object recognition, route optimization, and safe human-robot collaboration. These intelligent systems significantly reduce operational costs while increasing speed, efficiency, and workplace safety across industries. Recent advancements in computer vision and machine learning have made these robots more adaptable to dynamic environments.",
     link: "https://spectrum.ieee.org",
-    image: "https://via.placeholder.com/800x400?text=AI+Warehouse+Robots", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg", 
   },
   {
     id: 6,
@@ -71,7 +71,7 @@ const newsData = [
     summary:
       "Researchers have developed new soft robotic materials that can change shape and stiffness on demand, opening up possibilities for more flexible and safer robotic applications. These materials use advanced polymers that respond to electrical stimuli, allowing robots to navigate complex terrains and interact gently with humans. This innovation could revolutionize fields from medical devices to disaster response.",
     link: "https://www.technologyreview.com",
-    image: "https://via.placeholder.com/800x400?text=Soft+Robotics", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg", 
   },
   {
     id: 7,
@@ -82,7 +82,7 @@ const newsData = [
     summary:
       "Quantum computing is being harnessed to dramatically speed up machine learning algorithms used in robotics. This breakthrough allows robots to learn complex tasks in minutes rather than days, potentially transforming autonomous systems. Early experiments show quantum-enhanced robots outperforming traditional AI in pattern recognition and decision-making tasks.",
     link: "https://www.nature.com",
-    image: "https://via.placeholder.com/800x400?text=Quantum+Computing", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg", 
   },
   // Research Breakthroughs
   {
@@ -94,7 +94,7 @@ const newsData = [
     summary:
       "Researchers have introduced soft robotic systems capable of performing delicate medical procedures. These robots adapt to human tissue, minimizing risk and improving precision. The innovation opens new doors in minimally invasive surgery and advanced rehabilitation solutions. Clinical trials are underway to test these systems in real-world medical environments.",
     link: "https://www.nature.com",
-    image: "https://via.placeholder.com/800x400?text=Medical+Robotics", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg", 
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ const newsData = [
     summary:
       "A new study demonstrates direct brain-to-robot communication, allowing users to control complex robotic systems with thought alone. This breakthrough in neural interfaces could revolutionize prosthetics and human-robot interaction. The research combines advanced EEG technology with AI algorithms to interpret brain signals in real-time.",
     link: "https://www.sciencemag.org",
-    image: "https://via.placeholder.com/800x400?text=Brain+Computer+Interface", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg", 
   },
   {
     id: 10,
@@ -116,26 +116,13 @@ const newsData = [
     summary:
       "Scientists have created robots with self-healing capabilities inspired by biological organisms. These robots can repair damage autonomously using embedded microcapsules that release healing agents when cracks form. This technology could extend the lifespan of robots in harsh environments and reduce maintenance costs significantly.",
     link: "https://journals.plos.org",
-    image: "https://via.placeholder.com/800x400", // Replace with actual image URL
+    image: "https://cdn.pixabay.com/photo/2017/06/26/19/03/news-2444778_1280.jpg", 
   },
 ];
 export default function NewsDetail() {
   const { newsid } = useParams();
   const navigate = useNavigate();
-  const news = newsData.find((n) => n.id === parseInt(newsid));
-  const [showGoToTop, setShowGoToTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowGoToTop(window.scrollY > 300);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const news = newsData.find((n) => n.id === parseInt(newsid))
 
   if (!news) {
     return (
@@ -145,7 +132,7 @@ export default function NewsDetail() {
             No Such News Found!
           </h1>
           <button
-            onClick={() => navigate("/news")}
+            onClick={() => navigate("roboticsclub-web/news")}
             className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg shadow-lg hover:cursor-pointer transition duration-200"
           >
             Back to News
@@ -194,7 +181,7 @@ export default function NewsDetail() {
             alt={news.title}
             className="w-full h-96 object-cover rounded-lg shadow-lg border border-gray-800"
           />
-          <div className="absolute inset-0 bg-black bg-opacity-50 rounded-lg flex items-end p-6">
+          <div className="absolute inset-0 bg-black/50 rounded-lg flex items-end p-6">
             <div>
               <span className="inline-block bg-cyan-500 text-white text-xs px-3 py-1 rounded-full mb-2">
                 {news.category}
@@ -260,16 +247,6 @@ export default function NewsDetail() {
           </div>
         </div>
       </div>
-
-      {/* Go to Top Button */}
-      {showGoToTop && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-8 right-8 bg-cyan-500 hover:bg-cyan-600 text-white p-3 rounded-full shadow-lg transition duration-200 hover:cursor-pointer"
-        >
-          <FaArrowUp size={20} />
-        </button>
-      )}
     </div>
   );
 }

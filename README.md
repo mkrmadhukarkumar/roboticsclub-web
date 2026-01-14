@@ -1,6 +1,6 @@
 # 🤖 Robotics Club Website
 
-This is the official website for the **Robotics Club**, showcasing our projects, activities, and opportunities to get involved in robotics and STEM.  
+This is the demo website for the **Robotics Club NITP**, showcasing our projects, activities, and opportunities to get involved in robotics and STEM.  
 The website is hosted using **GitHub Pages**.
 
 🔗 **Live Website:**  
@@ -8,14 +8,14 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
 
 ---
 
-## 👤 Author & Contact Information
+## 👥 Team Members (4-Member Team)
 
-- **Name:** Madhukar Kumar  
-- **Email:** mkrmadhukarkumar@example.com *(replace with actual email if needed)*  
-- **GitHub:** https://github.com/mkrmadhukarkumar  
-- **LinkedIn:** *(Add your LinkedIn profile link if applicable)*  
-- **Other:**  
-  You can also reach out through the **Contact Form** on the website or join our **Discord community** for discussions and updates.
+| Name | Role | GitHub | 
+|-----|-----|--------|----------|
+| **Onkar Kumar** | Team Lead  | https://github.com/onkarrpy2403-ux |
+| **Madhukar Kumar** | Main Developer / Documentation | https://github.com/mkrmadhukarkumar |
+| **Tanmayee Biswal**| Frontend Developer / Content | https://github.com/RT-Biswal257 |
+| **Anukriti Dinesh Rai** | UI/UX Designer | |
 
 ---
 
@@ -23,17 +23,33 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
 
 ### Technologies Used
 
-- **HTML5** – Structure and semantic layout  
-- **CSS3** – Styling and responsive design  
-- **JavaScript** – Basic interactivity (navigation, forms, UI behavior)  
-- **Bootstrap 5** – Responsive grid system and UI components  
-- **Font Awesome** – Icons for navigation and social links  
-- **GitHub Pages** – Free hosting and deployment  
+#### Frontend
+- **HTML5** - Structure and Semantic layout
+- **React.js** – Component-based UI development
+- **Tailwind CSS** – Utility-first CSS framework for responsive design
+- **React Icons** – Lightweight and scalable icon library
+
+#### Tooling & Deployment
+- **Vite** – Fast development and build tool
+- **GitHub Pages** – Free static site hosting
+- **Git & GitHub** – Version control and collaboration
 
 ### Reasons for Choosing These Technologies
 
-- **Simplicity & Accessibility:**  
-  HTML, CSS, and JavaScript are lightweight, widely supported, and easy to maintain. Bootstrap helps achieve responsive design quickly.
+- **React.js:**  
+  Enables reusable components, better state management, and scalability.
+
+- **Tailwind CSS:**  
+  Faster UI development with consistent styling and no CSS bloat.
+
+- **React Icons:**  
+  Easy-to-use, customizable icons without external CDN dependency.
+
+- **Vite:**  
+  Lightning-fast dev server and optimized production builds.
+
+- **GitHub Pages:**  
+  Simple, free, and reliable hosting for frontend projects.
   
 - **Cost-Effective:**  
   GitHub Pages provides free hosting, perfect for a static website.
@@ -48,17 +64,20 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
 
 ## 📈 Future Scalability & Maintainability
 
-- **Modular Code Structure:**  
-  Separate HTML, CSS, and JS files make it easy to add new pages or features.
+- **Component-Based Architecture:**  
+  Easy to add new pages, sections, and features.
 
 - **Responsive Design:**  
-  Built using Bootstrap’s grid system and media queries for mobile, tablet, and desktop devices.
+  Fully mobile-first and works across all screen sizes.
 
-- **Static Site Architecture:**  
-  No backend dependency ensures low maintenance and easy scalability via GitHub Pages.
+- **Extensible Structure:**  
+  Can integrate APIs, CMS, authentication, or backend services in the future.
 
-- **Version Control & Collaboration:**  
-  GitHub enables collaboration using branches, pull requests, and issues.
+- **Team Collaboration:**  
+  GitHub workflow supports multiple contributors via branches and pull requests.
+
+- **Performance Optimized:**  
+  Vite build, lazy loading, and optimized assets ensure fast load times.
 
 - **Extensibility:**  
   The project can be extended with:
@@ -73,28 +92,19 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
 
 ## 🌐 External Resources & Assets
 
-### Frameworks & Libraries
-
-- **Bootstrap 5:** https://getbootstrap.com/  
-- **Font Awesome 6:** https://fontawesome.com/  
+- **React:** https://react.dev/
+- **Tailwind CSS:** https://tailwindcss.com/
+- **React Icons:** https://react-icons.github.io/react-icons/
 
 ### Images
 
-- **Robotics Banner Image:**  
-  From **Unsplash** (free license)  
-  Example: *Photo by John Doe on Unsplash*  
-
-- **Project Images:**  
-  - Pexels – https://www.pexels.com/  
-  - Pixabay – https://pixabay.com/  
-  *(Replace with actual image credits where applicable)*
+- Most of the images are taken from official Robotics Club NITP website
 
 ### Fonts & Services
 
-- **Google Fonts:** https://fonts.google.com/  
-- **Formspree (Optional):** https://formspree.io/ – Contact form handling  
+- uses Default fonts.
 
-📜 All resources used are **free or open-source** and comply with their respective licenses (MIT, CC0, etc.).
+📜 All resources used are **free or open-source**.
 
 ---
 
@@ -103,9 +113,52 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
 ### Prerequisites
 
 - GitHub account  
-- Basic knowledge of HTML, CSS, and JavaScript  
-- Code editor (recommended: **VS Code**)  
+- Basic knowledge of HTML, CSS, and JavaScript and React JS
+- Code editor (recommended: **VS Code**)
 
+### Project Architecture
+
+    roboticsclub-web/
+    ├── public/                     # Static assets that don’t need bundling
+    │   ├── background.jpeg
+    │   ├── dark-logo.png
+    │   ├── favicon.png
+    │   ├── gagandeepmeena.jpg
+    │   └── logo.png
+    │
+    ├── src/                        # Main app source folder
+    │   │
+    │   ├── components/             # Reusable UI components
+    │   |    ├── Footer.jsx
+    │   |    ├── Loader.jsx
+    │   |    ├── Navbar.jsx
+    
+    │   ├── pages/                  # Route-level pages
+    │   │   ├── AboutUs.jsx
+    │   │   ├── Achievements.jsx
+    │   │   ├── Contacts.jsx
+    │   │   ├── Events.jsx
+    │   │   ├── EventRegistration.jsx
+    │   │   ├── Home.jsx
+    │   │   ├── News.jsx
+    │   │   ├── NewsDetails.jsx
+    │   │   ├── OngoingProjectDetails.jsx
+    │   │   ├── PasstEventDetails.jsx
+    |   |   ├── Projects.jsx
+    │   │   └── Tean.jsx
+    |   |
+    │   ├── App.jsx                 # Root app layout
+    │   ├── index.css               # Main CSS file and Tailwind integration
+    │   └── main.jsx                # Entry point (React + Tailwind kick-off)
+    │
+    ├── .gitignore
+    ├── index.html                  # HTML entry page
+    ├── esling.coonfig.js           # Prettier + Tailwind plugin integration
+    ├── package.json                # NPM dependencies & scripts
+    ├── postcss.config.js           # Tailwind/PostCSS integration
+    ├── vite.config.js              # Vite build config
+    └── README.md                   # Project documentation
+    
 ---
 
 ### 🧑‍💻 Local Development

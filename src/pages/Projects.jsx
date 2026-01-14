@@ -20,7 +20,7 @@ const projectsData = [
       "PID Controller",
       "Python",
     ],
-    teamMembers: ["Alice Johnson", "Bob Smith", "Charlie Brown"],
+    teamMembers: ["Rajesh Kumar", "Ashutosh Kumar", "Raja Kumar"],
   },
   {
     id: 2,
@@ -41,7 +41,7 @@ const projectsData = [
       "DC Motors",
       "Bluetooth Module",
     ],
-    teamMembers: ["Diana Prince", "Eve Wilson"],
+    teamMembers: ["Rajeshwari", "Shekar Kumar"],
   },
   {
     id: 3,
@@ -58,7 +58,7 @@ const projectsData = [
       "Motor Drivers",
       "Communication Buses",
     ],
-    teamMembers: ["Frank Miller", "Grace Lee", "Henry Davis"],
+    teamMembers: ["Punam Kumari", "Riya Raj", "Afzal khan"],
   },
   {
     id: 4,
@@ -70,7 +70,7 @@ const projectsData = [
     description:
       "PlutoX is an open-source programmable nano drone, by an IIT Bombay based Indian company Drona Aviation. It comes with a 720p 1MP wifi camera that can do ROS based image processing. The scope of application of the drone is limitless. It can be used to make image-processing based projects like traffic monitoring drone, or a trespasser detection drone. Also it can be used to collect data from places beyond human reach like mines. The drone can be controlled manually using the pluto controller application and can be operated in either tilt mode or joystick mode. It can also be controlled automatically by a script running on ROS which uses live data from camera.",
     technologies: ["Arduino", "Raspberry Pi", "MQTT", "Sensors", "Node.js"],
-    teamMembers: ["Ivy Chen", "Jack Taylor"],
+    teamMembers: ["Ramesh Kumar", "Raj Kumar"],
   },
   {
     id: 5,
@@ -88,7 +88,7 @@ const projectsData = [
       "Cameras",
       "Reinforcement Learning",
     ],
-    teamMembers: ["Karen White", "Liam Garcia", "Mia Rodriguez"],
+    teamMembers: ["Aman Kumar", "Sikha Bharti", "Sonam Kumari"],
   },
   {
     id: 6,
@@ -106,7 +106,7 @@ const projectsData = [
       "Computer Vision",
       "Arduino",
     ],
-    teamMembers: ["Noah Martinez", "Olivia Anderson", "Parker Thompson"],
+    teamMembers: ["Puspam Kuamr", "Aryan Kumar", "Sikha Kiran"],
   },
   {
     id: 7,
@@ -118,7 +118,7 @@ const projectsData = [
     description:
       "The Radar Navigation is used in identifying, tracking (with integrated ARPA) and positioning of vessels (including one’s own vessel) among other things in order to adhere to the COLREGs so as to safely navigate a ship from one point to another. The marine radar is classified under the x-band (10 GHz) or S-band (3GHz) frequencies. The x-band, being of higher frequency is used for a sharper image and better resolution whereas the S-band is used especially when in rain or fog as well as for identification and tracking.",
     technologies: ["Arduino", "Raspberry Pi", "MQTT", "Sensors", "Node.js"],
-    teamMembers: ["Ivy Chen", "Jack Taylor"],
+    teamMembers: ["Mantu Raj", "Rajesh Khan"],
   },
   {
     id: 8,
@@ -136,7 +136,7 @@ const projectsData = [
       "Cameras",
       "Reinforcement Learning",
     ],
-    teamMembers: ["Karen White", "Liam Garcia", "Mia Rodriguez"],
+    teamMembers: ["Riya Kumari", "Mohan Kumar", "Sohan"],
   },
   {
     id: 9,
@@ -154,7 +154,7 @@ const projectsData = [
       "Computer Vision",
       "Arduino",
     ],
-    teamMembers: ["Noah Martinez", "Olivia Anderson", "Parker Thompson"],
+    teamMembers: ["Nitish Kumar", "Sajan Kumar", "Nilesh Kumar"],
   },
 ];
 

@@ -146,7 +146,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-102 duration-300"
                     />
                   </div>
                   <div>
@@ -161,7 +161,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
+                      className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-102 duration-300"
                     />
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export default function Contact() {
                     name="purpose"
                     value={formData.purpose}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
+                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white focus:outline-none focus:border-cyan-400 transition-colors hover:scale-102 duration-300"
                   >
                     <option className="bg-gray-800 text-white">General Inquiry</option>
                     <option className="bg-gray-800 text-white">Join Club</option>
@@ -194,7 +194,7 @@ export default function Contact() {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
+                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-102 duration-300"
                   />
                 </div>
                 <div>
@@ -209,12 +209,12 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-105 duration-300"
+                    className="w-full px-4 py-3 bg-gray-800 border-2 border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-cyan-400 transition-colors hover:scale-102 duration-300"
                   ></textarea>
                 </div>
                 <button
                   type="submit"
-                  className="bg-cyan-500 hover:bg-cyan-600 text-white py-3 px-8 rounded-lg font-semibold transition-colors duration-200 mx-auto block shadow-md hover:scale-105 duration-300"
+                  className="bg-green-500 hover:bg-green-600 cursor-pointer text-white py-3 px-8 rounded-lg font-semibold transition-colors duration-200 mx-auto block shadow-md hover:scale-105 duration-300"
                 >
                   Send Message
                 </button>

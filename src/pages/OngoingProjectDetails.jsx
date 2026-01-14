@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { FaArrowUp, FaUsers, FaCalendarAlt, FaImage } from "react-icons/fa";
 
-// Mock data for ongoing projects (same as in the original component)
+//here we call API and get data from backend in future.
+//we uses random inages here.
 const ongoingProjectsData = [
   {
     id: 1,
@@ -18,9 +19,9 @@ const ongoingProjectsData = [
     startDate: "2023-01-15",
     estimatedCompletion: "2024-06-30",
     images: [
-      "https://example.com/image1.jpg",
-      "https://example.com/image2.jpg",
-    ], // Add images for attractiveness
+      "https://images.squarespace-cdn.com/content/v1/61e9374e0434354049a258f9/a967d45e-3e74-4833-805f-f6ceacf0f101/Line+following+robot+.jpeg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61e9374e0434354049a258f9/a967d45e-3e74-4833-805f-f6ceacf0f101/Line+following+robot+.jpeg?format=2500w",
+    ],
   },
   {
     id: 2,
@@ -31,7 +32,7 @@ const ongoingProjectsData = [
     milestones: ["Skeleton assembly done", "Motor integration started"],
     startDate: "2023-03-10",
     estimatedCompletion: "2024-12-15",
-    images: ["https://example.com/image3.jpg"],
+    images: ["https://images.squarespace-cdn.com/content/v1/61e9374e0434354049a258f9/a967d45e-3e74-4833-805f-f6ceacf0f101/Line+following+robot+.jpeg?format=2500w"],
   },
   {
     id: 3,
@@ -47,8 +48,8 @@ const ongoingProjectsData = [
     startDate: "2022-11-01",
     estimatedCompletion: "2024-03-20",
     images: [
-      "https://example.com/image4.jpg",
-      "https://example.com/image5.jpg",
+      "https://images.squarespace-cdn.com/content/v1/61e9374e0434354049a258f9/a967d45e-3e74-4833-805f-f6ceacf0f101/Line+following+robot+.jpeg?format=2500w",
+      "https://images.squarespace-cdn.com/content/v1/61e9374e0434354049a258f9/a967d45e-3e74-4833-805f-f6ceacf0f101/Line+following+robot+.jpeg?format=2500w",
     ],
   },
 ];

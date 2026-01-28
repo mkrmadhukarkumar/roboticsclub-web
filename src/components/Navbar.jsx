@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const navlinks = [
   { id: 1, name: "Home", link: "/" },
@@ -14,10 +14,39 @@ const navlinks = [
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isDesktop, setIsDesktop] = useState(false);
   const location = useLocation();
 
+  useEffect(() => {
+    const checkDesktop = () => setIsDesktop(window.innerWidth >= 768);
+    checkDesktop();
+    window.addEventListener('resize', checkDesktop);
+    return () => window.removeEventListener('resize', checkDesktop);
+  }, []);
+
+  useEffect(() => {
+    if (!isDesktop) return;
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setIsVisible(false);
+      } else if (currentScrollY < lastScrollY) {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY, isDesktop]);
+
   return (
-    <nav className="fixed top-0 left-0 w-full z-60 bg-gray-900 shadow-2xl">
+    <nav className={`fixed top-0 left-0 w-full z-60 bg-gray-900 shadow-2xl transition-transform duration-300 ${
+      isDesktop && !isVisible ? '-translate-y-full' : 'translate-y-0'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8">
         <div className="flex pb-2 justify-between items-center h-17">
           {/* Here Codes for Robotics NITP Logo */}

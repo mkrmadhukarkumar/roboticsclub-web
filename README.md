@@ -133,8 +133,7 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
     │   ├── components/             # Reusable UI components
     │   |    ├── Footer.jsx
     │   |    ├── Loader.jsx
-    │   |    ├── Navbar.jsx
-    
+    │   |    └── Navbar.jsx
     │   ├── pages/                  # Route-level pages
     │   │   ├── AboutUs.jsx
     │   │   ├── Achievements.jsx

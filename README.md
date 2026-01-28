@@ -166,5 +166,5 @@ https://mkrmadhukarkumar.github.io/roboticsclub-web/
 
 #### Clone the Repository
 ```bash
-git clone https://github.com/onkarrpy2403-ux/roboticsclub-web.git
+git clone https://github.com/mkrmadhukarkumar/roboticsclub-web.git
 cd roboticsclub-web
